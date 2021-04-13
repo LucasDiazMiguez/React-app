@@ -1,0 +1,18 @@
+.reset{
+    &:hover{
+        color: red;
+    }
+    text-decoration: none;
+    color: black;
+    padding:10px;
+    white-space: nowrap;
+}
+input{
+    border-radius: 5px;
+}
+nav{
+    background-color: rgb(233, 225, 225);
+}
+body{
+    background-color: rgb(214, 206, 206);
+}
