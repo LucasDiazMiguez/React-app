@@ -7,6 +7,19 @@
     padding:10px;
     white-space: nowrap;
 }
+img{
+    object-fit: contain;
+    width: 230px;
+    height: 230px;
+}
+.cartel{
+    background-color: rgb(144, 144, 144);
+    margin: 30px;
+    border-radius: 10px;
+    h6{
+        margin-top: 30px;
+    }
+}
 input{
     border-radius: 5px;
 }
