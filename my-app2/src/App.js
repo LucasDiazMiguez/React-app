@@ -69,7 +69,7 @@ export default function App() {
     <div className="App" >
       <NavBar />
       
-      {items.length>0 ? <ItemListContainer productos={items}/> : <img src=""></img> }
+      {items.length>0 ? <ItemListContainer productos={items}/> : <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.203OyIQrZQcvPAtttruksgHaD6%26pid%3DApi%26h%3D160&f=1"></img> }
  
     </div>
   );
