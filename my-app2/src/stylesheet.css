@@ -1,0 +1,40 @@
+.reset {
+  text-decoration: none;
+  color: black;
+  padding: 10px;
+  white-space: nowrap;
+}
+
+.reset:hover {
+  color: red;
+}
+
+img {
+  -o-object-fit: contain;
+     object-fit: contain;
+  width: 230px;
+  height: 230px;
+}
+
+.cartel {
+  background-color: #acacac;
+  margin: 30px;
+  border-radius: 10px;
+}
+
+.cartel h6 {
+  margin-top: 30px;
+}
+
+input {
+  border-radius: 5px;
+}
+
+nav {
+  background-color: #e9e1e1;
+}
+
+body {
+  background-color: #d6cece;
+}
+/*# sourceMappingURL=stylesheet.css.map */

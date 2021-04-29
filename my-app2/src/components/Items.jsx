@@ -1,8 +1,6 @@
 import React from 'react';
-
 export const Items= (props)=>{
-    console.log("soy io") 
-    console.log(props.product) 
+  
     return(
         <div>
             <div className="cartel">

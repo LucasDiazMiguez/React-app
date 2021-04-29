@@ -8,7 +8,7 @@ import React, {useState,useEffect} from "react";
 
 
 export default function App() {
-  const [items, setItems] = useState([])
+  const [items, setItems] = useState(0)
 
   useEffect(() => {
     const buscoItems = new Promise((resolve, reject) => {
@@ -49,8 +49,8 @@ export default function App() {
       console.log("res ", res)
       setItems(res)
 
-      res.forEach((item) => console.log("item", item)
-      )
+      // res.forEach((item) => console.log("item", item)
+      // )
     }, (rej) => {
       console.log("rechazada-->", rej)
     })
@@ -63,11 +63,14 @@ export default function App() {
 
 
   }, [])
-
+ 
+  console.log("soy el principal;",items);
   return (
     <div className="App" >
       <NavBar />
-    <ItemListContainer productos={items}/>
+      
+      {items.length>0 ? <ItemListContainer productos={items}/> : <img src=""></img> }
+ 
     </div>
   );
 }
