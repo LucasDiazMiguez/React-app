@@ -1,14 +1,23 @@
-import React from 'react';
-import { ItemList} from '../components/ItemsList'
+import React ,{ useState, useEffect } from "react";
 
+import { ItemList } from "../components/ItemsList";
+import { useParams } from "react-router-dom";
 
-export const ItemListContainer= (props)=>{
-    console.log("estoy en ItemListCOntainer",props.productos);
+export const ItemListContainer = (props) => {
+//   console.log("estoy en ItemListCOntainer", props.productos);
+//   const { idProduct } = useParams();
+//   console.log("dklaf;", idProduct);
+//   const { username } = useParams();
 
-    return (
-        <div>
-            <h2> welcome to React Js</h2>
-           <ItemList productos={props.productos}/>
-        </div>
-    )
-}
+//   useEffect(() => {
+//     console.log("soy el user name",username);
+//   }, [username]);
+
+  return (
+    <div>
+      <h2> Productos</h2>
+      <ItemList productos={props.productos} />
+    </div>
+  );
+};
+

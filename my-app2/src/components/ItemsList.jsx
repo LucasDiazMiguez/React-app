@@ -6,9 +6,13 @@ export const ItemList= (props)=>{
     console.log(productosDeProp);
     
     return(
+        <div class="container ">
 
-        props.productos.map(producto=> (<Items product={producto}/>))
-       
+        <div class="row justify-content-around box " >
+      {  props.productos.map(producto=> (<Items productos={producto}/>))}
+       </div>
+        </div>
     )
     
 }
+
