@@ -9,7 +9,7 @@ export const ItemList= (props)=>{
         <div class="container ">
 
         <div class="row justify-content-around box " >
-      {  props.productos.map(producto=> (<Items productos={producto}/>))}
+      {  props.productos.map(producto=> (<Items key={producto.toString()} productos={producto}/>))}
        </div>
         </div>
     )

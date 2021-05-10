@@ -5,15 +5,29 @@ import { ItemListContainer } from "./components/ItemListContainer";
 import "./stylesheet.scss";
 import React, { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { BrowserRouter, Switch, Route, useParams } from "react-router-dom";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
 import MainRow from "./components/MainRow";
-import {Items} from "./components/Items";
-import {ItemDetailContainer} from "./components/ItemDetailContainer";
-import {ItemCategoryContainer} from "./components/ItemCategoryContainer";
+import { Items } from "./components/Items";
+import { ItemDetailContainer } from "./components/ItemDetailContainer";
+import { ItemCategoryContainer } from "./components/ItemCategoryContainer";
+import { CartContextTag } from "./components/CartContextTag";
+import MonkeyWorking from './components/MonkeyWorking';
 export default function App() {
-
   const [items, setItems] = useState(0);
-
+  const [valores, setValores] = useState("");
+  const eventhandler = (e) => {
+    console.log("event.hander", e.key);
+    if (
+      e.key === "a" ||
+      e.key === "e" ||
+      e.key === "i" ||
+      e.key === "o" ||
+      e.key === "u"
+    ) {
+      console.log("ta mal");
+      e.preventDefault();
+    }
+  };
   useEffect(() => {
     const buscoItems = new Promise((resolve, reject) => {
       const items = [
@@ -68,7 +82,8 @@ export default function App() {
         },
         {
           id: "00000006",
-          name: "Gamer Processor Intel Core i5 10400F with 6 núcleos y 4.3GHz de frecuencia ",
+          name:
+            "Gamer Processor Intel Core i5 10400F with 6 núcleos y 4.3GHz de frecuencia ",
           category: "processors",
           description:
             "Ejecuta programas de edición de videos, creación de contenido, streaming y videojuegos sin afectar el rendimiento del dispositivo. Memoria caché de 12 MB, rápida y volátil. Soporta memoria RAM DDR4. Su potencia es de 65 W. Cuenta con Hyper-Threading que favorece la ejecución de programas en simultáneo, al dividir el procesador físico en dos procesadores lógicos. Incluye air cooler. Producto  empaque original. Procesador avanzado de alto desempeño y marca líder en el rubro",
@@ -88,7 +103,8 @@ export default function App() {
         },
         {
           id: "00000008",
-          name: "Placa de video Nvidia Gigabyte Gaming GeForce RTX 30 Series RTX 3060 Ti GV-N306TGAMING OC-8GD OC Edition 8GB",
+          name:
+            "Placa de video Nvidia Gigabyte Gaming GeForce RTX 30 Series RTX 3060 Ti GV-N306TGAMING OC-8GD OC Edition 8GB",
           category: "video-graphics-card",
           description:
             "Fabricante: Nvidia.Tipo de memoria gráfica: GDDR6. Interfaz con la placa madre: PCI-Express 4.0.Tamaño de memoria: 8 GB. Contectividad: HDMI, DisplayPort.",
@@ -99,14 +115,14 @@ export default function App() {
       ];
       setTimeout(() => {
         resolve(items);
-      }, 2000);
+      }, 1);
     });
 
     buscoItems
       .then(
         (res) => {
           setItems(res);
-          console.log("me ejecute")
+          console.log("me ejecute");
           // res.forEach((item) => console.log("item", item)
           // )
         },
@@ -124,6 +140,7 @@ export default function App() {
 
   console.log("soy el principal;", items);
   return (
+    //TODO agregar keys a las map functions
     <BrowserRouter>
       <div className="App">
         <header>
@@ -131,46 +148,42 @@ export default function App() {
           <MainRow />
         </header>
         <Switch>
+          <CartContextTag>
           <Route path="/category/:categoryId">
             {items.length > 0 ? (
               <ItemCategoryContainer productos={items} />
             ) : (
-              <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.203OyIQrZQcvPAtttruksgHaD6%26pid%3DApi%26h%3D160&f=1"></img>
+              <MonkeyWorking/>
             )}
           </Route>
-          <Route path="/shopping-cart">
-          <h3>We are  working on it</h3>
-            <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.fcnaustin.com%2Fwp-content%2Fuploads%2F2017%2F08%2FMokeyLaptop.gif&f=1&nofb=1"></img>
-          </Route>
+        
           <Route path="/sign-in">
-            <h3>We are  working on it</h3>
-            <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.fcnaustin.com%2Fwp-content%2Fuploads%2F2017%2F08%2FMokeyLaptop.gif&f=1&nofb=1"></img>
+              <MonkeyWorking/>
           </Route>
           <Route path="/register">
-            <h3>We are  working on it</h3>
-            <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.fcnaustin.com%2Fwp-content%2Fuploads%2F2017%2F08%2FMokeyLaptop.gif&f=1&nofb=1"></img>
+          <MonkeyWorking/>
           </Route>
           <Route path="/shopping-cart">
-            <h3>We are  working on it</h3>
-            <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.fcnaustin.com%2Fwp-content%2Fuploads%2F2017%2F08%2FMokeyLaptop.gif&f=1&nofb=1"></img>
+          <MonkeyWorking/>
           </Route>
           <Route path="/item/:productId">
-          {items.length > 0 ? (
+            {items.length > 0 ? (
               <ItemDetailContainer productos={items} />
-              
             ) : (
-              <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.203OyIQrZQcvPAtttruksgHaD6%26pid%3DApi%26h%3D160&f=1"></img>
+              <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.fcnaustin.com%2Fwp-content%2Fuploads%2F2017%2F08%2FMokeyLaptop.gif&f=1&nofb=1"></img>
             )}
-            
           </Route>
-          <Route path="/">
+          
+          <Route exact path="/">
             {items.length > 0 ? (
               <ItemListContainer productos={items} />
             ) : (
               <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.203OyIQrZQcvPAtttruksgHaD6%26pid%3DApi%26h%3D160&f=1"></img>
             )}
           </Route>
+         <CartContextTag></CartContextTag></CartContextTag>
         </Switch>
+
         {/* agregarle lo de colores con : */}
         {/* TODO  agregarle lo de colores con : */}
       </div>
@@ -188,3 +201,14 @@ export default function App() {
 // let producto6 = new Products(180999, 26, "imagenes/imagenesInicio/rtx 2080ti.webp", "Placa Video Geforce Strix Gaming 2080ti Ddr6 11gb Rog ", "Placa Video Geforce Strix Gaming 2080ti Ddr6 11gb Rog ", "000000006", "nvidia", 0);
 // let producto7 = new Products(5999, 26, "imagenes/imagenesInicio/ssd.webp", "Disco sólido interno Kingston SA400S37/480G 480GB", "Disco sólido interno Kingston SA400S37/480G 480GB", "000000007", "kingston", 0);
 // let producto8 = new Products(85099, 26, "imagenes/imagenesInicio/indice.webp", "Notebook Hp 14-cf3047la I3-1005g1 4gb 256gb Ssd Windows 10", "Notebook Hp 14-cf3047la I3-1005g1 4gb 256gb Ssd Windows 10", "000000008", "hp", 0);
+// ?  What does useEffect do? By using this Hook, you tell React that your component needs to do something after render. React will remember the function you passed (we’ll refer to it as our “effect”), and call it later after performing the DOM updates. In this effect, we set the document title, but we could also perform data fetching or call some other imperative API..
+ // ? Does useEffect run after every render? Yes! By default, it runs both after the first render and after every updat
+//?  In the example above, we pass [count] as the second argument. What does this mean? If the count is 5, and then our component re-renders with count still equal to 5, React will compare [5] from the previous render and [5] from the next render. Because all items in the array are the same (5 === 5), React would skip the effect. That’s our optimization.
+
+//  ?When we render with count updated to 6, React will compare the items in the [5] array from the previous render to items in the [6] array from the next render. This time, React will re-apply the effect because 5 !== 6. If there are multiple items in the array, React will re-run the effect even if just one of them is different.
+
+// ? Context provides a way to share values like these between components without having to explicitly pass a prop through every level of the tree.
+//  ? The Provider component accepts a value prop to be passed to consuming components that are descendants of this Provider. One Provider can be connected to many consumers. Providers can be nested to override values deeper within the tree.
+
+// ?All consumers that are descendants of a Provider will re-render whenever the Provider’s value prop changes. The propagation from Provider to its descendant consumers (including .contextType and useContext) is not subject to the shouldComponentUpdate method, so the consumer is updated even when an ancestor component skips an update.
+// ? .consumer se usa mas que nada para cuando solo necesitas imprimirlo o no aplicarle una logica a ese valor. Para usarlo  con Logica si necesito un useState 

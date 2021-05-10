@@ -13,7 +13,7 @@ export const ItemCategoryContainer = (props) => {
         <div class="row justify-content-around box " >
 
       {selector.map((i) => (
-        <ItemCategoryList productos={i} />
+        <ItemCategoryList key={i.toString()} productos={i} />
         ))}
         </div>
     </div>

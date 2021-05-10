@@ -1,7 +1,6 @@
-import React ,{ useState, useEffect } from "react";
+import React  from "react";
 
 import { ItemList } from "../components/ItemsList";
-import { useParams } from "react-router-dom";
 
 export const ItemListContainer = (props) => {
 //   console.log("estoy en ItemListCOntainer", props.productos);
