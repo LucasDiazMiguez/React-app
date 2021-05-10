@@ -3,7 +3,6 @@ import { Items} from './Items'
 
 export const ItemList= (props)=>{
     let productosDeProp = (props).productos;
-    console.log(productosDeProp);
     
     return(
         <div class="container ">

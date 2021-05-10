@@ -2,6 +2,7 @@ import React, { useState, useContext } from "react";
 import { useParams, Link, NavLink } from "react-router-dom";
 import { CartContext } from "./CartContextTag";
 
+
 function onAdd(cart, item, setCart) {
   console.log("imhere ");
   console.log(cart);
@@ -25,8 +26,8 @@ function onAdd(cart, item, setCart) {
   //   return value > 18;
   // }
   setCart(cart);
+  console.log("caaart",cart);
 }
-
 const Button = (props) => {
   const [check, setCheck] = useState(0);
   const [count, setCount] = useState(0);
@@ -49,7 +50,7 @@ const Button = (props) => {
       {/* //por que de entrada se ejecuta la funcon? */}
     <Link className="no-text-decoration p-3" onClick={onAdd(cart, props.product, setCart)} to={"/shopping-cart"}>
       <button className="pl-3 pr-3 "j> 
-          agregar al carrito{" "}
+          agregar al carrito
       </button>
         </Link>
       <button onClick={() => setCheck(0)}>Cambiar cantidad</button>

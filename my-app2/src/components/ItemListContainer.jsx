@@ -11,11 +11,12 @@ export const ItemListContainer = (props) => {
 //   useEffect(() => {
 //     console.log("soy el user name",username);
 //   }, [username]);
+  console.log("estoy en item list container",props.product);
 
   return (
     <div>
       <h2> Productos</h2>
-      <ItemList productos={props.productos} />
+      <ItemList productos={props.product} />
     </div>
   );
 };

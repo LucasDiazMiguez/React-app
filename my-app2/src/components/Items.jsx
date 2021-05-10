@@ -9,7 +9,7 @@ export const Items = (props) => {
                 to={`/item/${props.productos.id}`}
                 className="no-text-decoration black-text"
               >
-                <img src={props.productos.img}></img>
+                <img src={props.productos.image}></img>
               </Link>
               <Link
                 to={`/item/${props.productos.id}`}
