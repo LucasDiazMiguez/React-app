@@ -17,7 +17,7 @@ export const Items = (props) => {
               >
                 <h6 className="item-name">{props.productos.name}</h6>
               </Link>
-              <h6 className="card-price">{props.productos.value}</h6>
+              <h6 className="card-price">{props.productos.price}</h6>
               <button>agregar al carrito </button>
         </div>
       

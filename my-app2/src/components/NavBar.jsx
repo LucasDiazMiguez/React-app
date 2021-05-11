@@ -10,7 +10,7 @@ export function NavBar(props) {
               <Link to={`/`}>
                 {/* <img src="../my-enes/Rovel.png " alt="Logo"></img> */}
                 {/* poner imagen  */}
-                <h1 className="no-text-decoration">PCWORLD</h1>
+                <h1 className="no-text-decoration">.........................</h1>
               </Link>
             </div>
           </div>

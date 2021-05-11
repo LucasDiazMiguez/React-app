@@ -22,7 +22,7 @@ const ItemDetail = (props) => {
       <div class="col-lg-5 col-md-5  left-border">
         <h3>{props.product.name}</h3>
         <h6 className="p-3">Descripción: {props.product.description}</h6>
-        <h4 className="pl-3 pr-3 ">{props.product.value}</h4>
+        <h4 className="pl-3 pr-3 ">{props.product.price}</h4>
         <Button product={props.product}></Button>
       </div>
     </div>

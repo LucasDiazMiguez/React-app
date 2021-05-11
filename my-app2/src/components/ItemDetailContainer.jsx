@@ -24,7 +24,7 @@ export const ItemDetailContainer = (props) => {
         console.log("soy el selector",selector);
         console.log("soy lo que vale product", product);
         resolve(selector);
-      }, 5000);
+      }, 500);
     });
 
     searchOneItem
