@@ -2,8 +2,16 @@ import React, { useState, useContext,useEffect } from "react";
 import { useParams, Link, NavLink } from "react-router-dom";
 import { CartContext } from "./CartContextTag";
 
-function onAdd(cart, item, setCart, count) {
-  console.log("y el for each?");
+function onAdd(cart, item, setCart, count,setOpacity) {
+  if (count> item.stock || item.stock == 0) {
+    
+    console.log('no stock suficiente :>> ');
+    setOpacity(1);
+    setTimeout(() => {
+      setOpacity(0);
+    }, 3000);
+    return;
+  }
   cart.forEach((element) => {
     console.log(element);
   });
@@ -39,6 +47,7 @@ function onAdd(cart, item, setCart, count) {
 }
 const Button = (props) => {
   const [check, setCheck] = useState(0);
+  const [opacity, setOpacity] = useState(0);
   const [counter, setCounter] = useState(0);
   const [cart, setCart] = useContext(CartContext);
   const [colour1, setColour1] = useState("#3483fa");
@@ -62,7 +71,7 @@ const Button = (props) => {
        
         +
       </button>
-      <input type="Number" value={counter} />
+      <input type="number" value={counter} />
       <button
         style={{ backgroundColor: `${colour2}` }}
         onClick={() =>{if (counter==0 ) {
@@ -81,11 +90,12 @@ const Button = (props) => {
       </button>
       <button
         /*onClick={() => setCheck(1) */ onClick={() =>
-          onAdd(cart, props.product, setCart, counter)
+          onAdd(cart, props.product, setCart, counter,setOpacity)
         }
       >
         Check
       </button>
+      <h5 className="p-2 m-1" style={{ borderRadius: "10px",transition: "0.5s" ,backgroundColor: "#ff0000", opacity: `${opacity}`   }}>solo puede comprar {props.product.stock} items más</h5>
     </div>
   ) : (
     <>
@@ -95,7 +105,7 @@ const Button = (props) => {
         onClick={() => onAdd(cart, props.product, setCart, counter)}
         to={"/shopping-cart"}
       >
-        <button className="pl-3 pr-3 " j>
+        <button className="pl-3 pr-3 " >
           Terminar compra
         </button>
       </Link>
