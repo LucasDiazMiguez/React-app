@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import { CartContext } from "./CartContextTag";
 import { CartContextTag } from "./CartContextTag";
-import Button from "./Button";
+import AddToCart from "./AddToCart";
 
 
 
@@ -23,7 +23,7 @@ const ItemDetail = (props) => {
         <h3>{props.product.name}</h3>
         <h6 className="p-3">Descripción: {props.product.description}</h6>
         <h4 className="pl-3 pr-3 ">{props.product.price}</h4>
-        <Button product={props.product}></Button>
+        <AddToCart product={props.product}></AddToCart>
       </div>
     </div>
   );

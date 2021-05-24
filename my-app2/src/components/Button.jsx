@@ -1,123 +1,62 @@
-import React, { useState, useContext,useEffect } from "react";
-import { useParams, Link, NavLink } from "react-router-dom";
-import { CartContext } from "./CartContextTag";
-
-function onAdd(cart, item, setCart, count,setOpacity) {
-  if (count> item.stock || item.stock == 0) {
-    
-    console.log('no stock suficiente :>> ');
-    setOpacity(1);
-    setTimeout(() => {
-      setOpacity(0);
-    }, 3000);
-    return;
-  }
-  cart.forEach((element) => {
-    console.log(element);
-  });
-  let newCart = cart;
-  console.log(
-    "si",
-    cart.some((value) => value.id == item.id)
-  );
-  // console.log("item", item);
-  // console.log("cart", cart[0]);
-  // console.log("item==cart[i]", item == cart[0]);
-  if (cart.some((value) => value.id == item.id)) {
-    //si alguno tiene un id igual al item id significa que ya estaba en el cart
-    // cart.forEach((element) => {
-    //   console.log(element);
-    //   console.log("element.id :>> ", element.id);
-    //   console.log("item.id==element :>> ", item.id == element.id);
-    // });
-    console.log("item.id :>> ", item.id);
-    console.log("index :>> ", cart.indexOf(item));
-    let index = cart.indexOf(item);
-    newCart[index].cantidadAgregada = newCart[index].cantidadAgregada + count;
-    newCart[index].stock = newCart[index].stock - count;
-  } else {
-    console.log("newCart before:>> ", newCart);
-    newCart.push(item);
-    console.log("newCart  after :>> ", newCart);
-  }
-
-  console.log("caaart", cart);
-  console.log("newCart", newCart);
-  setCart(newCart);
-}
+import React, { useContext, useState } from "react";
+import { CartContext } from "./CartContextTag"; //
+//! Encuentro problemas porque al actualizar el cart, no se hace un re render, no se porque, entonces meti un useState (cantidad agregada) que lo que hace es 
+//! hacer que el componente se renderize cada vez que cambia, que coincide con las veces que cantidadAgregada
 const Button = (props) => {
-  const [check, setCheck] = useState(0);
-  const [opacity, setOpacity] = useState(0);
-  const [counter, setCounter] = useState(0);
   const [cart, setCart] = useContext(CartContext);
-  const [colour1, setColour1] = useState("#3483fa");
-  const [colour2, setColour2] = useState("#3483fa");
-  
-  return check == 0 ? (
+  console.log("props.id :>> ", props.id);
+  const selector = cart.findIndex(find);
+  let newCart = cart;
+  const [cantidadAgregada, setCantidadAgregada] = useState(
+    cart[selector].cantidadAgregada
+  ); //? este state va al lado de cantidadAgregada, porque si uso sin este estado, no se actualiza el input
+  //? como el estado cantidad agregada cambia, se renderiza de nuevo
+  function find(value, index) {
+    return value.id == props.id;
+  }
+
+  return (
     <div>
-      <button
-        style={{ backgroundColor: `${colour1}` }}
-        onClick={() =>{if (counter==props.product.stock ) {
-          setColour1("red")
-          setInterval(() => {
-            setColour1("#3483fa")
-          }, 2000)
-          
-          
-        }else
-        setCounter(counter+1)
-      }}
-      >
-       
-        +
-      </button>
-      <input type="number" value={counter} />
-      <button
-        style={{ backgroundColor: `${colour2}` }}
-        onClick={() =>{if (counter==0 ) {
-          setColour2("red")
-          setInterval(() => {
-            setColour2("#3483fa")
-          }, 2000)
-          
-          
-        }else
-        setCounter(counter-1)
-      }}
-      >
-       
-        -
-      </button>
-      <button
-        /*onClick={() => setCheck(1) */ onClick={() =>
-          onAdd(cart, props.product, setCart, counter,setOpacity)
-        }
-      >
-        Check
-      </button>
-      <h5 className="p-2 m-1" style={{ borderRadius: "10px",transition: "0.5s" ,backgroundColor: "#ff0000", opacity: `${opacity}`   }}>solo puede comprar {props.product.stock} items más</h5>
-    </div>
-  ) : (
-    <>
-      {/* //por que de entrada se ejecuta la funcon? */}
-      <Link
-        className="no-text-decoration p-3"
-        onClick={() => onAdd(cart, props.product, setCart, counter)}
-        to={"/shopping-cart"}
-      >
-        <button className="pl-3 pr-3 " >
-          Terminar compra
+      {!(cantidadAgregada == cart[selector].stock) ? (
+        <button
+          onClick={() => {
+            newCart[selector].cantidadAgregada = cantidadAgregada + 1;
+            setCart(newCart);
+            console.log(
+              "cart[selector].cantidadAgregada :>> ",
+              cart[selector].cantidadAgregada
+            );
+            //setCantidadAgregada(cantidadAgregada + 1);// ! cuando renderiza de nuevo si se actualiza, por eso aparece un toy afuera de cantidadAgrgada. Cantidad agregada  sirve como "disparador de rerender"
+            console.log("cantidadAgregada state:>> ", cantidadAgregada); // !no se  actualiza porque se actualiza cuando hace el rerender
+          }}
+        >
+          +
         </button>
-      </Link>
-      <button onClick={() => setCheck(0)}>Volver</button>
-    </>
+      ) : (
+        <></>
+      )}
+
+      <input value={cart[selector].cantidadAgregada} />
+      {!(cantidadAgregada == 0) ? (
+        <button
+          onClick={() => {
+            newCart[selector].cantidadAgregada = cantidadAgregada - 1;
+            setCart(newCart);
+            console.log(
+              "cart[selector].cantidadAgregada :>> ",
+              cart[selector].cantidadAgregada
+            );
+            // setCantidadAgregada(cantidadAgregada - 1);// ! cuando renderiza de nuevo si se actualiza, por eso aparece un toy afuera de cantidadAgrgada. Cantidad agregada  sirve como "disparador de rerender"
+            console.log("cantidadAgregada state:>> ", cantidadAgregada); // !no se  actualiza porque se actualiza cuando hace el rerender
+          }}
+        >
+          -
+        </button>
+      ) : (
+        <></>
+      )}
+    </div>
   );
 };
 
 export default Button;
-// var numbers = [45, 4, 9, 16, 25];
-// var allOver18 = numbers.every(myFunction);
-// console.log("allolver19",allOver18);
-// function myFunction(value, index, array) {
-//   return value > 18;
-// }

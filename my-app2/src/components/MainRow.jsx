@@ -3,9 +3,8 @@ import { useParams, Link } from "react-router-dom";
 
 export default function MainRow(props) {
   return (
-    <div className="d-flex flex-column align-items-start p-3">
-      <h3>Categories</h3>
-      <ul>
+    <div className="">
+      <ul className="d-flex flex-row justify-content-between p-2 ml-3 mr-2">
         <li>
           {" "}
           <Link to={"/category/cases"}>Gabinetes </Link>

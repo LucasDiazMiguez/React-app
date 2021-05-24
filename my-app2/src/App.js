@@ -13,7 +13,7 @@ import { ItemCategoryContainer } from "./components/ItemCategoryContainer";
 import { CartContextTag } from "./components/CartContextTag";
 import MonkeyWorking from "./components/MonkeyWorking";
 import { getFirestore } from "./components/firebase";
-import ItemCartContainer from "./components/ItemCartContainer.jsx"
+import ItemCartContainer from "./components/ItemCartContainer.jsx";
 import ItemCart from "./components/ItemCart";
 // import imagenes from '../src/imagenes'
 export default function App() {
@@ -72,7 +72,7 @@ export default function App() {
     },
   };
   const producto1 = new Products(
-    "$300.000",
+    "300000",
     39,
     "https://firebasestorage.googleapis.com/v0/b/hardwarehouse-proyecto-coder.appspot.com/o/3090rtx.webp?alt=media&token=bc45e398-9866-4923-8548-36e1eb84c5ea",
     "NVIDIA GPU RTX 3090 24gb MSI",
@@ -83,7 +83,7 @@ export default function App() {
     "video-graphics-card"
   );
   const producto2 = new Products(
-    "$44.588",
+    "44588",
     30,
     "https://firebasestorage.googleapis.com/v0/b/hardwarehouse-proyecto-coder.appspot.com/o/ryzen73700x.webp?alt=media&token=3c44c7ed-853a-493e-a6d5-5e2dd9dfa9f6",
     "Procesador gamer AMD Ryzen 7 3700X 100-100000071BOX de 8 núcleos y 4.4GHz de frecuencia",
@@ -94,7 +94,7 @@ export default function App() {
     "processors"
   );
   const producto3 = new Products(
-    "$60.000",
+    "60000",
     8,
     "https://firebasestorage.googleapis.com/v0/b/hardwarehouse-proyecto-coder.appspot.com/o/inteli9core.webp?alt=media&token=6ccde020-f3fd-47a9-a5f5-f0f03afffd4a",
     "Procesador gamer Intel Core i9 10850K BX8070110850K de 10 núcleos y 5.2GHz de frecuencia con gráfica integrada",
@@ -105,7 +105,7 @@ export default function App() {
     "processors"
   );
   const producto4 = new Products(
-    "$75.900",
+    "75900",
     9,
     "https://firebasestorage.googleapis.com/v0/b/hardwarehouse-proyecto-coder.appspot.com/o/Gabinete%20Lian%20Li%20O11%20Dynamic%20Xl%20Rog%20Certified%20Atx%20.webp?alt=media&token=52148a70-b2d9-4356-bfeb-43b347cc2d74",
     "Lian Li O11 Dynamic XL ROG Certified (negro) ATX Full Tower Gaming Computer Case",
@@ -116,7 +116,7 @@ export default function App() {
     "cases"
   );
   const producto5 = new Products(
-    "$339.999",
+    "339999",
     1,
     "https://firebasestorage.googleapis.com/v0/b/hardwarehouse-proyecto-coder.appspot.com/o/Sapphire%20Nitro%2B%20Rx%206700%20Xt%20Radeon%20Rx%206000%20Series.webp?alt=media&token=e87f532d-7871-4049-b2de-6ce367d1afda",
     "La tarjeta gráfica SAPPHIRE NITRO + AMD Radeon RX 6700 XT para el jugador de 1440p definitivo que busca aprovechar gráficos innovadores con imágenes vívidas y soluciones de refrigeración de excelente calidad. Equipada con componentes superiores para manejar escenarios de juegos AAA, la tarjeta gráfica NITRO + AMD Radeon RX 6700 XT es un componente crucial para una experiencia de juego increíble. El diseño estético será una hermosa integración en cualquier construcción de PC.",
@@ -127,7 +127,7 @@ export default function App() {
     "video-graphics-card"
   );
   const producto6 = new Products(
-    "$19.900",
+    "19900",
     3,
     "https://firebasestorage.googleapis.com/v0/b/hardwarehouse-proyecto-coder.appspot.com/o/Gamer%20Processor%20Intel%20Core%20i5%2010400F%20with%206%20n%C3%BAcleos%20y%204.3GHz%20de%20frecuencia.webp?alt=media&token=a9114af1-ca69-466b-92a2-c0a98fe4f84b",
     "Ejecuta programas de edición de videos, creación de contenido, streaming y videojuegos sin afectar el rendimiento del dispositivo. Memoria caché de 12 MB, rápida y volátil. Soporta memoria RAM DDR4. Su potencia es de 65 W. Cuenta con Hyper-Threading que favorece la ejecución de programas en simultáneo, al dividir el procesador físico en dos procesadores lógicos. Incluye air cooler. Producto  empaque original. Procesador avanzado de alto desempeño y marca líder en el rubro",
@@ -138,7 +138,7 @@ export default function App() {
     "processors"
   );
   const producto7 = new Products(
-    "$22.900",
+    "22900",
     20,
     "https://firebasestorage.googleapis.com/v0/b/hardwarehouse-proyecto-coder.appspot.com/o/Gabinete%20Gamer%20Xigmatek%20Aquarius%20Plus%20Tempaldo%207%20Cooles%20Argb.webp?alt=media&token=a2cc6571-7df2-45a1-8207-d584f37e5f2e",
     "Gabinete Gamer Xigmatek Aquarius Plus Tempaldo 7 Cooles Argb",
@@ -149,7 +149,7 @@ export default function App() {
     "cases"
   );
   const producto8 = new Products(
-    "$324.999",
+    "324999",
     5,
     "https://firebasestorage.googleapis.com/v0/b/hardwarehouse-proyecto-coder.appspot.com/o/Placa%20de%20video%20Nvidia%20Gigabyte%20Gaming%20GeForce%20RTX%203060Ti%20OC-8GD%20OC%20Edition.webp?alt=media&token=90ea9314-782f-4323-b9eb-6312209f6eda",
     "Fabricante: Nvidia.Tipo de memoria gráfica: GDDR6. Interfaz con la placa madre: PCI-Express 4.0.Tamaño de memoria: 8 GB. Contectividad: HDMI, DisplayPort.",
@@ -161,7 +161,7 @@ export default function App() {
   );
 
   const producto9 = new Products(
-    "$4.999",
+    "4999",
     1,
     "https://firebasestorage.googleapis.com/v0/b/hardwarehouse-proyecto-coder.appspot.com/o/camara-destacada.webp?alt=media&token=46ddec34-ea65-4fb5-bda5-6a7aca104ef2",
     "Camara Web Webcam Usb Pc Full Hd 1080p Plug & Play Microfono",
@@ -172,7 +172,7 @@ export default function App() {
     "cameras"
   );
   const producto10 = new Products(
-    "$15.999",
+    "15999",
     20,
     "https://firebasestorage.googleapis.com/v0/b/hardwarehouse-proyecto-coder.appspot.com/o/gabinetegamer.webp?alt=media&token=7130942b-5542-4949-94a4-878e7438435e",
     "Gabinete Sentey Z20 Lite - Led Rgb",
@@ -183,7 +183,7 @@ export default function App() {
     "cases"
   );
   const producto11 = new Products(
-    "$150.999",
+    "150999",
     10,
     "https://firebasestorage.googleapis.com/v0/b/hardwarehouse-proyecto-coder.appspot.com/o/GPU.webp?alt=media&token=7a295041-d3d3-4e92-bc95-0e4f954e6d4f",
     "Placa Video Msi Geforce Rtx2070 Super Ventus Gp Oc 8gb Gddr",
@@ -194,7 +194,7 @@ export default function App() {
     "video-graphics-card"
   );
   const producto12 = new Products(
-    "$26.999",
+    "26999",
     16,
     "https://firebasestorage.googleapis.com/v0/b/hardwarehouse-proyecto-coder.appspot.com/o/motherboardbarata-destacado.webp?alt=media&token=1e67bb23-d7d0-4c4a-b621-4ee426bd25c8",
     "Motherboard Gigabyte Ga-b365m Elite Intel 1151 9na 4",
@@ -205,7 +205,7 @@ export default function App() {
     "motherboards"
   );
   const producto13 = new Products(
-    "$3.999",
+    "3999",
     16,
     "https://firebasestorage.googleapis.com/v0/b/hardwarehouse-proyecto-coder.appspot.com/o/reloj-destacado.webp?alt=media&token=d7b23822-d7f6-4ee6-b72d-a7589a5b341e",
     "Xiaomi Mi Band 5 Global Smart Watch Reloj Inteligente + Film",
@@ -216,7 +216,7 @@ export default function App() {
     "watches"
   );
   const producto14 = new Products(
-    "$180.999",
+    "180999",
     26,
     "https://firebasestorage.googleapis.com/v0/b/hardwarehouse-proyecto-coder.appspot.com/o/rtx%202080ti.webp?alt=media&token=40e41513-0cc7-479b-acd8-638fa68fbf16",
     "Placa Video Geforce Strix Gaming 2080ti Ddr6 11gb Rog ",
@@ -227,7 +227,7 @@ export default function App() {
     "video-graphics-card"
   );
   const producto15 = new Products(
-    "$5.999",
+    "5999",
     26,
     "https://firebasestorage.googleapis.com/v0/b/hardwarehouse-proyecto-coder.appspot.com/o/ssd.webp?alt=media&token=1d39fc58-cdb9-48e4-826c-b796d41ec1a1",
     "Disco sólido interno Kingston SA400S37/480G 480GB",
@@ -238,7 +238,7 @@ export default function App() {
     "ssd"
   );
   const producto16 = new Products(
-    "$85.099",
+    "85099",
     26,
     "https://firebasestorage.googleapis.com/v0/b/hardwarehouse-proyecto-coder.appspot.com/o/%C3%ADndice.jpg?alt=media&token=58e3752b-0b8c-48aa-8055-90d99bc4b8ea",
     "Notebook Hp 14-cf3047la I3-1005g1 4gb 256gb Ssd Windows 10",
@@ -290,7 +290,6 @@ export default function App() {
   //ssd
   //notebooks
 
-  console.log("soy el principal;", items[0]);
   return (
     //TODO agregar keys a las map functions
     <BrowserRouter>
@@ -316,7 +315,7 @@ export default function App() {
               <MonkeyWorking />
             </Route>
             <Route path="/shopping-cart">
-                <ItemCartContainer/>
+              <ItemCartContainer />
             </Route>
             <Route path="/item/:productId">
               {items.length > 0 ? (
