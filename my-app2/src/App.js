@@ -1,6 +1,6 @@
 /* 
 TODO
-mover el firebase a config! investigar porque no anda ,terminar el carrito, preguntar si los state de colores asi estan bien , limpiar los warning de react, arreglar los maps, preguntar que onda los precios, como hacer par ponerlos con , preguntar porque el switch no switchea ,la base de datos hay que cargarla una vez? o ya la dejamos siempre cargada? y como hago para consultarle a la base de datos si tiene datos? IMPLEMENTAR FUNCION QUE DIGA SI HAY DATOS O NO
+mover el firebase a config! investigar porque no anda ,terminar el carrito, preguntar si los state de colores asi estan bien , limpiar los warning de react, arreglar los maps, preguntar que onda los precios, como hacer par ponerlos con , preguntar porque el switch no switchea ,la base de datos hay que cargarla una vez? o ya la dejamos siempre cargada? y como hago para consultarle a la base de datos si tiene datos? IMPLEMENTAR FUNCION QUE DIGA SI HAY DATOS O NO como hago para que se actulice la pagina de los useparams()?
 
 */
 
@@ -42,7 +42,7 @@ export default function App() {
         id: product.id,
         marca: product.marca,
         description: product.description,
-        categoria: product.category,
+        category: product.category,
       };
     },
     fromFirestore: function (snapshot, options) {
@@ -55,7 +55,7 @@ export default function App() {
         data.id,
         data.marca,
         data.description,
-        data.categoria
+        data.category
       );
     },
   };
@@ -244,17 +244,20 @@ export default function App() {
     producto16,
   ];
 
- 
+  // useEffect(() => {
+  //   const db = getFirestore(); //abrir la puerta a la base de datos
   //   var batch = db.batch();
   //   items.forEach((element) =>
   //     batch.set(
-  //       db.collection("Items").doc().withConverter(productConverter),
+  //       db.collection("items").doc().withConverter(productConverter),
   //       element
   //     )
   //   );
   //   batch.commit();
   //   console.log("db :>> ", db);
-  // }, []);
+  //   return () => {
+  //   }
+  // }, [])
 
   //TODO  agregar categorias, darle mas estilos
   //categories:
@@ -294,17 +297,11 @@ export default function App() {
               )}
             </Route>
 
-            <Route path="/category/:categoryId">
-              {items.length > 0 ? (
-                <ItemCategoryContainer productos={items} />
-              ) : (
-                <MonkeyWorking />
-              )}
+            <Route exact path="/category/:categoryId">
+              <ItemCategoryContainer productos={items} />
             </Route>
             <Route exact path="/">
-              {
-                <ItemListContainer/>
-              }
+              <ItemListContainer />
             </Route>
           </CartContextTag>
         </Switch>

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import {img} from "../"
 export const ItemCategoryList = (props) => {
+  console.log('props.productos :>> ', props.productos);
   return (
          <div class="col-lg-3 col-md-3 box-gallery-item">
               <Link
