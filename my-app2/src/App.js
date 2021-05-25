@@ -1,36 +1,27 @@
-// import logo from './logo.svg';
+/* 
+TODO
+mover el firebase a config! investigar porque no anda ,terminar el carrito, preguntar si los state de colores asi estan bien , limpiar los warning de react, arreglar los maps, preguntar que onda los precios, como hacer par ponerlos con , preguntar porque el switch no switchea ,la base de datos hay que cargarla una vez? o ya la dejamos siempre cargada? y como hago para consultarle a la base de datos si tiene datos? IMPLEMENTAR FUNCION QUE DIGA SI HAY DATOS O NO
+
+*/
+
 import "./App.css";
 import { NavBar } from "./components/NavBar";
 import { ItemListContainer } from "./components/ItemListContainer";
 import "./stylesheet.scss";
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import MainRow from "./components/MainRow";
-import { Items } from "./components/Items";
 import { ItemDetailContainer } from "./components/ItemDetailContainer";
 import { ItemCategoryContainer } from "./components/ItemCategoryContainer";
 import { CartContextTag } from "./components/CartContextTag";
 import MonkeyWorking from "./components/MonkeyWorking";
-import { getFirestore } from "./components/firebase";
 import ItemCartContainer from "./components/ItemCartContainer.jsx";
-import ItemCart from "./components/ItemCart";
+import { getFirestore } from "./components/firebase";
 // import imagenes from '../src/imagenes'
 export default function App() {
-  const [valores, setValores] = useState("");
-
   class Products {
-    constructor(
-      price,
-      stock,
-      image,
-      description,
-      name,
-      id,
-      marca,
-      cantidadAgregada,
-      categoria
-    ) {
+    constructor(price, stock, image, description, name, id, marca, categoria) {
       this.price = price;
       this.stock = stock;
       this.image = image;
@@ -38,7 +29,6 @@ export default function App() {
       this.id = id;
       this.marca = marca;
       this.description = description;
-      this.cantidadAgregada = cantidadAgregada;
       this.category = categoria;
     }
   }
@@ -52,7 +42,6 @@ export default function App() {
         id: product.id,
         marca: product.marca,
         description: product.description,
-        cantidadAgregada: product.cantidadAgregada,
         categoria: product.category,
       };
     },
@@ -66,11 +55,15 @@ export default function App() {
         data.id,
         data.marca,
         data.description,
-        data.cantidadAgregada,
         data.categoria
       );
     },
   };
+
+  //   //!hacer una funcion que lea todos los documentos que tengan stock ==0,
+  //   //!
+
+  //!mover todo a un json
   const producto1 = new Products(
     "300000",
     39,
@@ -79,7 +72,6 @@ export default function App() {
     "RTX 3090",
     1,
     "nvidia",
-    0,
     "video-graphics-card"
   );
   const producto2 = new Products(
@@ -90,7 +82,6 @@ export default function App() {
     "Processor gamer AMD Ryzen 7 3700X",
     2,
     "amd",
-    0,
     "processors"
   );
   const producto3 = new Products(
@@ -101,7 +92,6 @@ export default function App() {
     "Intel Core i9 10850K ",
     3,
     "intel",
-    0,
     "processors"
   );
   const producto4 = new Products(
@@ -112,7 +102,6 @@ export default function App() {
     "Gabinete Lian Li O11 Dynamic Xl Rog Certified Atx ",
     4,
     "lian",
-    0,
     "cases"
   );
   const producto5 = new Products(
@@ -123,7 +112,6 @@ export default function App() {
     "Sapphire Nitro+ Rx 6700 Xt Radeon Rx 6000 Series ",
     5,
     "amd",
-    0,
     "video-graphics-card"
   );
   const producto6 = new Products(
@@ -134,7 +122,6 @@ export default function App() {
     "Gamer Processor Intel Core i5 10400F with 6 núcleos y 4.3GHz de frecuencia ",
     6,
     "intel",
-    0,
     "processors"
   );
   const producto7 = new Products(
@@ -145,7 +132,6 @@ export default function App() {
     "Gabinete Gamer Xigmatek Aquarius Plus Tempaldo 7 Cooles Argb",
     7,
     "xigmatek",
-    0,
     "cases"
   );
   const producto8 = new Products(
@@ -156,7 +142,6 @@ export default function App() {
     "Placa de video Nvidia Gigabyte Gaming GeForce RTX 3060Ti OC-8GD OC Edition ",
     8,
     "nvidia",
-    0,
     "video-graphics-card"
   );
 
@@ -166,9 +151,8 @@ export default function App() {
     "https://firebasestorage.googleapis.com/v0/b/hardwarehouse-proyecto-coder.appspot.com/o/camara-destacada.webp?alt=media&token=46ddec34-ea65-4fb5-bda5-6a7aca104ef2",
     "Camara Web Webcam Usb Pc Full Hd 1080p Plug & Play Microfono",
     "Camara Web Webcam Usb Pc Full Hd 1080p Plug & Play Microfono",
-    "9",
+    9,
     "none",
-    0,
     "cameras"
   );
   const producto10 = new Products(
@@ -177,9 +161,8 @@ export default function App() {
     "https://firebasestorage.googleapis.com/v0/b/hardwarehouse-proyecto-coder.appspot.com/o/gabinetegamer.webp?alt=media&token=7130942b-5542-4949-94a4-878e7438435e",
     "Gabinete Sentey Z20 Lite - Led Rgb",
     "Gabinete Sentey Z20 Lite - Led Rgb",
-    "10",
+    10,
     "sentey",
-    0,
     "cases"
   );
   const producto11 = new Products(
@@ -188,9 +171,8 @@ export default function App() {
     "https://firebasestorage.googleapis.com/v0/b/hardwarehouse-proyecto-coder.appspot.com/o/GPU.webp?alt=media&token=7a295041-d3d3-4e92-bc95-0e4f954e6d4f",
     "Placa Video Msi Geforce Rtx2070 Super Ventus Gp Oc 8gb Gddr",
     "Placa Video Msi Geforce Rtx2070 Super Ventus Gp Oc 8gb Gddr",
-    "11",
+    11,
     "nvidia",
-    0,
     "video-graphics-card"
   );
   const producto12 = new Products(
@@ -199,9 +181,8 @@ export default function App() {
     "https://firebasestorage.googleapis.com/v0/b/hardwarehouse-proyecto-coder.appspot.com/o/motherboardbarata-destacado.webp?alt=media&token=1e67bb23-d7d0-4c4a-b621-4ee426bd25c8",
     "Motherboard Gigabyte Ga-b365m Elite Intel 1151 9na 4",
     "Motherboard Gigabyte Ga-b365m Elite Intel 1151 9na 4",
-    "12",
+    12,
     "gigabyte",
-    0,
     "motherboards"
   );
   const producto13 = new Products(
@@ -210,9 +191,8 @@ export default function App() {
     "https://firebasestorage.googleapis.com/v0/b/hardwarehouse-proyecto-coder.appspot.com/o/reloj-destacado.webp?alt=media&token=d7b23822-d7f6-4ee6-b72d-a7589a5b341e",
     "Xiaomi Mi Band 5 Global Smart Watch Reloj Inteligente + Film",
     "Xiaomi Mi Band 5 Global Smart Watch Reloj Inteligente + Film",
-    "13",
+    13,
     "xiaomi",
-    0,
     "watches"
   );
   const producto14 = new Products(
@@ -221,9 +201,8 @@ export default function App() {
     "https://firebasestorage.googleapis.com/v0/b/hardwarehouse-proyecto-coder.appspot.com/o/rtx%202080ti.webp?alt=media&token=40e41513-0cc7-479b-acd8-638fa68fbf16",
     "Placa Video Geforce Strix Gaming 2080ti Ddr6 11gb Rog ",
     "Placa Video Geforce Strix Gaming 2080ti Ddr6 11gb Rog ",
-    "14",
+    14,
     "nvidia",
-    0,
     "video-graphics-card"
   );
   const producto15 = new Products(
@@ -232,9 +211,8 @@ export default function App() {
     "https://firebasestorage.googleapis.com/v0/b/hardwarehouse-proyecto-coder.appspot.com/o/ssd.webp?alt=media&token=1d39fc58-cdb9-48e4-826c-b796d41ec1a1",
     "Disco sólido interno Kingston SA400S37/480G 480GB",
     "Disco sólido interno Kingston SA400S37/480G 480GB",
-    "15",
+    15,
     "kingston",
-    0,
     "ssd"
   );
   const producto16 = new Products(
@@ -243,9 +221,8 @@ export default function App() {
     "https://firebasestorage.googleapis.com/v0/b/hardwarehouse-proyecto-coder.appspot.com/o/%C3%ADndice.jpg?alt=media&token=58e3752b-0b8c-48aa-8055-90d99bc4b8ea",
     "Notebook Hp 14-cf3047la I3-1005g1 4gb 256gb Ssd Windows 10",
     "Notebook Hp 14-cf3047la I3-1005g1 4gb 256gb Ssd Windows 10",
-    "16",
+    16,
     "hp",
-    0,
     "notebooks"
   );
   const items = [
@@ -267,14 +244,14 @@ export default function App() {
     producto16,
   ];
 
-  // useEffect(() => {
-  //   //!hacer una funcion que lea todos los documentos que tengan stock ==0,
-  //   //!
-  //   const db = getFirestore(); //abrir la puerta a la base de datos
+ 
   //   var batch = db.batch();
-  //  items.forEach( (element)=>
-  //     batch.set( db.collection("items1").doc().withConverter(productConverter),element)
-  //   )
+  //   items.forEach((element) =>
+  //     batch.set(
+  //       db.collection("Items").doc().withConverter(productConverter),
+  //       element
+  //     )
+  //   );
   //   batch.commit();
   //   console.log("db :>> ", db);
   // }, []);
@@ -300,14 +277,6 @@ export default function App() {
         </header>
         <Switch>
           <CartContextTag>
-            <Route path="/category/:categoryId">
-              {items.length > 0 ? (
-                <ItemCategoryContainer productos={items} />
-              ) : (
-                <MonkeyWorking />
-              )}
-            </Route>
-
             <Route path="/sign-in">
               <MonkeyWorking />
             </Route>
@@ -325,12 +294,17 @@ export default function App() {
               )}
             </Route>
 
-            <Route exact path="/">
+            <Route path="/category/:categoryId">
               {items.length > 0 ? (
-                <ItemListContainer product={items} />
+                <ItemCategoryContainer productos={items} />
               ) : (
-                <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.203OyIQrZQcvPAtttruksgHaD6%26pid%3DApi%26h%3D160&f=1"></img>
+                <MonkeyWorking />
               )}
+            </Route>
+            <Route exact path="/">
+              {
+                <ItemListContainer/>
+              }
             </Route>
           </CartContextTag>
         </Switch>
@@ -342,16 +316,6 @@ export default function App() {
   );
 }
 
-// TODO agregar colores, también agregar los diferentes porductos con el coso variable :
-// TODO después encargarnos del sass
-// let producto1 = new Products(4999, 1, "imagenes/imagenesInicio/camara-destacada.webp", "Camara Web Webcam Usb Pc Full Hd 1080p Plug & Play Microfono", "Camara Web Webcam Usb Pc Full Hd 1080p Plug & Play Microfono", "1", "none", 0);
-// let producto2 = new Products(15999, 20, "imagenes/imagenesInicio/gabinetegamer.webp", "Gabinete Sentey Z20 Lite - Led Rgb", "Gabinete Sentey Z20 Lite - Led Rgb", "000000002", "sentey", 0);
-// let producto3 = new Products(150999, 10, "imagenes/imagenesInicio/GPU.webp", "Placa Video Msi Geforce Rtx2070 Super Ventus Gp Oc 8gb Gddr", "Placa Video Msi Geforce Rtx2070 Super Ventus Gp Oc 8gb Gddr", "000000003", "nvidia", 0);
-// let producto4 = new Products(26999, 16, "imagenes/imagenesInicio/motherboardbarata-destacado.webp", "Motherboard Gigabyte Ga-b365m Elite Intel 1151 9na 4", "Motherboard Gigabyte Ga-b365m Elite Intel 1151 9na 4", "000000004", "gigabyte", 0);
-// let producto5 = new Products(3999, 16, "imagenes/imagenesInicio/reloj-destacado.webp", "Xiaomi Mi Band 5 Global Smart Watch Reloj Inteligente + Film", "Xiaomi Mi Band 5 Global Smart Watch Reloj Inteligente + Film", "000000005", "xiaomi", 0);
-// let producto6 = new Products(180999, 26, "imagenes/imagenesInicio/rtx 2080ti.webp", "Placa Video Geforce Strix Gaming 2080ti Ddr6 11gb Rog ", "Placa Video Geforce Strix Gaming 2080ti Ddr6 11gb Rog ", "000000006", "nvidia", 0);
-// let producto7 = new Products(5999, 26, "imagenes/imagenesInicio/ssd.webp", "Disco sólido interno Kingston SA400S37/480G 480GB", "Disco sólido interno Kingston SA400S37/480G 480GB", "000000007", "kingston", 0);
-// let producto8 = new Products(85099, 26, "imagenes/imagenesInicio/indice.webp", "Notebook Hp 14-cf3047la I3-1005g1 4gb 256gb Ssd Windows 10", "Notebook Hp 14-cf3047la I3-1005g1 4gb 256gb Ssd Windows 10", "000000008", "hp", 0);
 // ?  What does useEffect do? By using this Hook, you tell React that your component needs to do something after render. React will remember the function you passed (we’ll refer to it as our “effect”), and call it later after performing the DOM updates. In this effect, we set the document title, but we could also perform data fetching or call some other imperative API..
 // ? Does useEffect run after every render? Yes! By default, it runs both after the first render and after every updat
 //?  In the example above, we pass [count] as the second argument. What does this mean? If the count is 5, and then our component re-renders with count still equal to 5, React will compare [5] from the previous render and [5] from the next render. Because all items in the array are the same (5 === 5), React would skip the effect. That’s our optimization.
@@ -362,4 +326,4 @@ export default function App() {
 //  ? The Provider component accepts a value prop to be passed to consuming components that are descendants of this Provider. One Provider can be connected to many consumers. Providers can be nested to override values deeper within the tree.
 
 // ?All consumers that are descendants of a Provider will re-render whenever the Provider’s value prop changes. The propagation from Provider to its descendant consumers (including .contextType and useContext) is not subject to the shouldComponentUpdate method, so the consumer is updated even when an ancestor component skips an update.
-// ? .consumer se usa mas que nada para cuando solo necesitas imprimirlo o no aplicarle una logica a ese valor. Para usarlo  con Logica si necesito un useState
+// ? .consumer se usa mas que nada para cuando solo necesitas imprimirlo o no aplicarle una logica a ese valor. Para usarlo  con Logica si necesito un useStateadsfasdf

@@ -5,15 +5,10 @@ import ItemDetail from "./ItemDetail";
 export const ItemDetailContainer = (props) => {
   const [product, setProduct] = useState(0);
   const { productId } = useParams();
-  console.log("soy props aaaaaaaaaaaaaaaaaaaaaaaaaaaaa aver ",props.product);
-  console.log("soy props aaaaaaaaaaaaaaaaaaaaaaaaaaaaa aver ",props.product.id);
- 
   useEffect(() => {
     console.log("entre al useEffect", product);
     const searchOneItem = new Promise((resolve, reject) => {
       setTimeout(() => {
-        console.log("soy props aaaaaaaaaaaaaaaaaaaaaaaaaaaaa aver dentro del coos ",props.product);
-
         const selector = (props.product).find(find);
         function find(value,index,array){
           console.log("value",value.id)
@@ -31,9 +26,6 @@ export const ItemDetailContainer = (props) => {
       .then(
         (res) => {
           setProduct(res);
-          console.log("producto vale", product);
-          // res.forEach((item) => console.log("item", item)
-          // )
         },
         (rej) => {
           console.log("rechazada-->", rej);
