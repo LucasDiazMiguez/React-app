@@ -1,18 +1,19 @@
 import React from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export const Items = (props) => {
+  console.log('props.productos :>> ', props.productos);
   return (
     
           <div class="col-lg-3 col-md-3 box-gallery-item">
               <Link
-                to={`/item/${props.productos.id}`}
+                to={`/item/${props.id}`}
                 className="no-text-decoration black-text"
               >
-                <img src={props.productos.image}></img>
+                <img alt={props.productos.name} src={props.productos.image}></img>
               </Link>
               <Link
-                to={`/item/${props.productos.id}`}
+                to={`/item/${props.id}`}
                 className="no-text-decoration black-text"
               >
                 <h6 className="item-name">{props.productos.name}</h6>

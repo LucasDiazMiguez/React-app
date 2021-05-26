@@ -1,14 +1,23 @@
 /* 
 TODO
-mover el firebase a config! investigar porque no anda ,terminar el carrito, preguntar si los state de colores asi estan bien , limpiar los warning de react, arreglar los maps, preguntar que onda los precios, como hacer par ponerlos con , preguntar porque el switch no switchea ,la base de datos hay que cargarla una vez? o ya la dejamos siempre cargada? y como hago para consultarle a la base de datos si tiene datos? IMPLEMENTAR FUNCION QUE DIGA SI HAY DATOS O NO como hago para que se actulice la pagina de los useparams()?
+mover el firebase a config! investigar porque no anda , 
+
 
 */
+//TODO preguntar si los state de colores asi estan bien 
+//TODO  limpiar los warning de react
+//TODO   Line 32:17:  Expected '!==' and instead saw '!='       
 
+//TODO IMPLEMENTAR FUNCION QUE DIGA SI HAY DATOS O NO  o sea preguntando al data base 
+//TODO preguntar que hacer  cuando el usuario se hace el vivo y pone un id que noexiste 
+//TODO  preguntar que onda los precios
+//TODO   Line 32:6:  React Hook useEffect has missing dependencies: 'array' and 'itemsFromDB'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+//TODO sacar el id  del objeto
 import "./App.css";
 import { NavBar } from "./components/NavBar";
 import { ItemListContainer } from "./components/ItemListContainer";
 import "./stylesheet.scss";
-import React, { useEffect } from "react";
+import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import MainRow from "./components/MainRow";
@@ -17,8 +26,11 @@ import { ItemCategoryContainer } from "./components/ItemCategoryContainer";
 import { CartContextTag } from "./components/CartContextTag";
 import MonkeyWorking from "./components/MonkeyWorking";
 import ItemCartContainer from "./components/ItemCartContainer.jsx";
-import { getFirestore } from "./components/firebase";
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { fas } from "@fortawesome/free-solid-svg-icons";
+library.add(fas);
 // import imagenes from '../src/imagenes'
+
 export default function App() {
   class Products {
     constructor(price, stock, image, description, name, id, marca, categoria) {
@@ -32,33 +44,33 @@ export default function App() {
       this.category = categoria;
     }
   }
-  var productConverter = {
-    toFirestore: function (product) {
-      return {
-        price: product.price,
-        stock: product.stock,
-        image: product.image,
-        name: product.name,
-        id: product.id,
-        marca: product.marca,
-        description: product.description,
-        category: product.category,
-      };
-    },
-    fromFirestore: function (snapshot, options) {
-      const data = snapshot.data(options);
-      return new Products(
-        data.price,
-        data.stock,
-        data.image,
-        data.name,
-        data.id,
-        data.marca,
-        data.description,
-        data.category
-      );
-    },
-  };
+  // var productConverter = {
+  //   toFirestore: function (product) {
+  //     return {
+  //       price: product.price,
+  //       stock: product.stock,
+  //       image: product.image,
+  //       name: product.name,
+  //       id: product.id,
+  //       marca: product.marca,
+  //       description: product.description,
+  //       category: product.category,
+  //     };
+  //   },
+  //   fromFirestore: function (snapshot, options) {
+  //     const data = snapshot.data(options);
+  //     return new Products(
+  //       data.price,
+  //       data.stock,
+  //       data.image,
+  //       data.name,
+  //       data.id,
+  //       data.marca,
+  //       data.description,
+  //       data.category
+  //     );
+  //   },
+  // };
 
   //   //!hacer una funcion que lea todos los documentos que tengan stock ==0,
   //   //!
@@ -271,15 +283,14 @@ export default function App() {
   //notebooks
 
   return (
-    //TODO agregar keys a las map functions
     <BrowserRouter>
-      <div className="App">
-        <header>
-          <NavBar />
-          <MainRow />
-        </header>
-        <Switch>
-          <CartContextTag>
+      <CartContextTag>
+        <div className="App">
+          <header>
+            <NavBar />
+            <MainRow />
+          </header>
+          <Switch>
             <Route path="/sign-in">
               <MonkeyWorking />
             </Route>
@@ -290,25 +301,20 @@ export default function App() {
               <ItemCartContainer />
             </Route>
             <Route path="/item/:productId">
-              {items.length > 0 ? (
-                <ItemDetailContainer product={items} />
-              ) : (
-                <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.fcnaustin.com%2Fwp-content%2Fuploads%2F2017%2F08%2FMokeyLaptop.gif&f=1&nofb=1"></img>
-              )}
+              <ItemDetailContainer />
             </Route>
-
-            <Route exact path="/category/:categoryId">
+            <Route  path="/category/:categoryId">
               <ItemCategoryContainer productos={items} />
             </Route>
-            <Route exact path="/">
+            <Route  path="/">
               <ItemListContainer />
             </Route>
-          </CartContextTag>
-        </Switch>
+          </Switch>
 
-        {/* agregarle lo de colores con : */}
-        {/* TODO  agregarle lo de colores con : */}
-      </div>
+          {/* agregarle lo de colores con : */}
+          {/* TODO  agregarle lo de colores con : */}
+        </div>
+      </CartContextTag>
     </BrowserRouter>
   );
 }

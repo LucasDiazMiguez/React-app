@@ -1,17 +1,17 @@
-import React, { useState, useContext, useEffect } from "react";
-import { useParams, Link, NavLink } from "react-router-dom";
+import React, { useState, useContext} from "react";
+import {Link } from "react-router-dom";
 import { CartContext } from "./CartContextTag";
-import Button from "./Button";
 
 const AddToCart = (props) => {
   const { cart, addItem } = useContext(CartContext);
-  const [counter, setCounter] = useState(0);
+  const [counter, setCounter] = useState(1);
 
   const [check, setCheck] = useState(false);
   // const [opacity, setOpacity] = useState(0);
   // const [colour1, setColour1] = useState("#3483fa");
   // const [colour2, setColour2] = useState("#3483fa");
-
+  console.log('props.product :>> ', props.product);
+  console.log('cart[0] :>> ', cart[0]);
   const [colour, setColour] = useState({
     opacity: 0,
     colour1: "#3483fa",
@@ -31,7 +31,7 @@ const AddToCart = (props) => {
   };
 
   const minusItem = () => {
-    if (counter === 0) {
+    if (counter === 1) {
       setColour({ opacity: 0, colour1: "#3483fa", colour2: "red" });
       setInterval(() => {
         setColour({ opacity: 0, colour1: "#3483fa", colour2: "#3483fa" });
@@ -42,9 +42,8 @@ const AddToCart = (props) => {
   };
 
   const onAdd = () => {
-    addItem(props.product, counter);
-    console.log("alojandra soy yo :>> ", cart);
-    setCheck(true);
+    addItem(props.product.item, counter,props.product.id);
+    
   };
 
   return !check ? (
@@ -62,7 +61,7 @@ const AddToCart = (props) => {
       >
         -
       </button>
-      <button onClick={() => onAdd()}>Check</button>
+      <button onClick={() => setCheck(true)}>Check</button>
       <h5
         className="p-2 m-1"
         style={{

@@ -1,6 +1,11 @@
-import React from "react";
+import React,{useContext} from "react";
 import { Link } from "react-router-dom";
+import { CartContext } from "./CartContextTag";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome"
+
 export function NavBar(props) {
+  const  {itemsAmount}=useContext(CartContext);
+  console.log('itemsAmount() :>> ', itemsAmount());
   return (
     <div>
       <div className="container-fluid header-container">
@@ -41,7 +46,8 @@ export function NavBar(props) {
                 className="b-w-hover no-text-decoration mr-3 p-1"
                 id="cart-icon-b"
               >
-                Carrito
+                {itemsAmount() > 0 && <span>{itemsAmount()}</span>}
+              <FontAwesomeIcon icon={["fas","shopping-cart"]}/>
               </Link>
             </nav>
           </div>

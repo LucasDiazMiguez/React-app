@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { ItemCategoryList } from "./ItemCategoryList";
 import { getFirestore } from "./firebase";
 
@@ -21,7 +21,8 @@ export const ItemCategoryContainer = (props) => {
           console.log("entre per");
           // doc.data() is never undefined for query doc snapshots
           console.log("doc.data() :>> ",  doc.data());
-          array.push(doc.data());
+          let a= {item:doc.data(),id:doc.id}
+          array.push(a)
         });
         setItemsFromDB(array);
         setAgrego(true);
@@ -40,11 +41,11 @@ export const ItemCategoryContainer = (props) => {
     <div>
       <div class="container ">
         <div class="row justify-content-around box ">
-            { itemsFromDB.map((value)=>  <ItemCategoryList  productos={value}/>)}
+            { itemsFromDB.map((value)=>  <ItemCategoryList key={value.id} productos={value}/>)}
         </div>
       </div>
     </div>
   ) : (
-    <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.203OyIQrZQcvPAtttruksgHaD6%26pid%3DApi%26h%3D160&f=1"></img>
+    <img alt="Loading" src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.203OyIQrZQcvPAtttruksgHaD6%26pid%3DApi%26h%3D160&f=1"></img>
   );
 };

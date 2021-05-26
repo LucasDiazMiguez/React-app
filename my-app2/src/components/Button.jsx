@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { CartContext } from "./CartContextTag"; //
 
 const Button = ({ item }) => {
@@ -6,13 +6,13 @@ const Button = ({ item }) => {
 
   const plusItem = () => {
     if (item.quantity < item.item.stock) {
-      addItem(item.item, 1);
+      addItem(item.item, 1,item.item.id);
     }
   };
 
   const minusItem = () => {
     if (item.quantity > 0) {
-      addItem(item.item, -1);
+      addItem(item.item, -1,item.item.id);
     }
   };
 

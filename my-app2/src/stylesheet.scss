@@ -5,6 +5,8 @@ input::-webkit-inner-spin-button {
   margin: 0;
 }
 
+
+
 /* Firefox */
 input[type="number"] {
   -moz-appearance: textfield;
@@ -16,6 +18,11 @@ input[type="number"] {
   background-color: red;
   color: black;
 }
+//This removes the snippet in html lists
+ul {
+  list-style-type: none;
+}
+
 .no-text-decoration {
   text-decoration: none;
   color: white;
