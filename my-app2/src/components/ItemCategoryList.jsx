@@ -3,7 +3,7 @@ import  {Link}  from "react-router-dom";
 export const ItemCategoryList = (props) => {
   console.log(' estoy en itemCategory List props.productos :>> ', props.productos);
   return (
-         <div class="col-lg-3 col-md-3 box-gallery-item">
+         <div className="col-lg-3 col-md-3 box-gallery-item">
               <Link
                 to={`/item/${props.productos.id}`}
                 className="no-text-decoration black-text"
@@ -19,6 +19,5 @@ export const ItemCategoryList = (props) => {
               <h6 className="card-price">{props.productos.item.price}</h6>
               <button>agregar al carrito </button>
         </div>
-    // props.productos.map(producto=> (<Items productos={producto}/>))
   );
 };
