@@ -6,13 +6,13 @@ const Button = ({ item }) => {
 
   const plusItem = () => {
     if (item.quantity < item.item.stock) {
-      addItem(item.item, 1,item.item.id);
+      addItem(item.item, 1,item.id);
     }
   };
 
   const minusItem = () => {
     if (item.quantity > 0) {
-      addItem(item.item, -1,item.item.id);
+      addItem(item.item, -1,item.id);
     }
   };
 
