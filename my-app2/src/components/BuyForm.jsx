@@ -9,7 +9,7 @@ export const BuyForm = () => {
   const [orderId, setOrderId] = useState("");
 
   //? porque cuando cambio el input se actualiza todo? o sea llama a la función, setea el buyer y dsps coomo que se actualiza el componente?
-  // ver si con una sola función puedo ver que input tocó
+  // ver si con una sola función puedo ver que input tocóa
   const handleInputName = (e) => {
     setBuyer({ ...buyer, name: e.target.value });
   };
