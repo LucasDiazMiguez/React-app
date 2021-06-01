@@ -18,9 +18,9 @@ const Button = ({ item }) => {
 
   return (
     <div>
-      <button onClick={minusItem}>-</button>
+      <button onClick={minusItem}> - </button>
       <input value={item.quantity} />
-      <button onClick={plusItem}>+</button>
+      <button onClick={plusItem}> + </button>
     </div>
   );
 };
