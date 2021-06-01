@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 export const Items = (props) => {
-  console.log('props.productos :>> ', props.productos);
+  // console.log('props.productos :>> ', props.productos);
   return (
     
           <div class="col-lg-3 col-md-3 box-gallery-item">

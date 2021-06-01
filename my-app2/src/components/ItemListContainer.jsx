@@ -11,8 +11,8 @@ export const ItemListContainer = (props) => {
     db.collection("items")
       .get()
       .then((querySnapshot) => {
-        console.log("yooo soy query snapchot :>> ");
-        console.log("querySnapchot :>> ", querySnapshot);
+        // console.log("yooo soy query snapchot :>> ");
+        // console.log("querySnapchot :>> ", querySnapshot);
         querySnapshot.forEach((doc) => {
           array.push({item: doc.data(),id: doc.id});
         });
@@ -20,12 +20,12 @@ export const ItemListContainer = (props) => {
         setAgrego(true);
       })
       .catch((error) => {
-        console.log("Error getting documents: ", error);
+        // console.log("Error getting documents: ", error);
       });
   }, []);
 
-  console.log("typeof(itemsFromDB) :>> ", typeof itemsFromDB);
-  console.log("items from db ", itemsFromDB);
+  // console.log("typeof(itemsFromDB) :>> ", typeof itemsFromDB);
+  // console.log("items from db ", itemsFromDB);
 
   return agrego ? (
     <div>
@@ -45,24 +45,24 @@ export const ItemListContainer = (props) => {
 //   db.collection("items")
 //     .get()
 //     .then((querySnapshot) => {
-//       console.log('yooo soy query snapchot :>> ');
-//       console.log('querySnapchot :>> ', querySnapshot);
+// //       console.log('yooo soy query snapchot :>> ');
+// //       console.log('querySnapchot :>> ', querySnapshot);
 //       querySnapshot.forEach((doc) => {
 //         // doc.data() is never undefined for query doc snapshots
-//         console.log(doc.id, " => ", doc.data());
-//         console.log('doc.data() :>> ', typeof(doc.data()));
+// //         console.log(doc.id, " => ", doc.data());
+// //         console.log('doc.data() :>> ', typeof(doc.data()));
 //         let documento=doc.data();
-//         console.log("YO SOY DOCUMENTO");
-//         console.log("documento",documento)
+// //         console.log("YO SOY DOCUMENTO");
+// //         console.log("documento",documento)
 //          array.push({documento})
-//         console.log(doc.id, " => ", doc);
+// //         console.log(doc.id, " => ", doc);
 //       });
-//       array.forEach((value)=>console.log('valueobject :>> ',value))
+// //       array.forEach((value)=>console.log('valueobject :>> ',value))
 //       setItemsFromDB([array])
-//       console.log('itemsFromDB :>> ', itemsFromDB);
+// //       console.log('itemsFromDB :>> ', itemsFromDB);
 
 //     })
 //     .catch((error) => {
-//       console.log("Error getting documents: ", error);
+// //       console.log("Error getting documents: ", error);
 //     });
 // }, []);

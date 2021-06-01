@@ -7,14 +7,14 @@ export const CartContextTag = ({ children }) => {
   const [totalPrice, settotalPrice] = useState(0)
   //En los otros, vos tenes que poner  [cart,setCart]=useContext() para poder acceder.
   const addItem = (item, quantity, id) => {
-    console.log(' SSSSSSSSSSSSSSSSSSSSSSSSSS isInCart(item.id) :>> ', isInCart(id));
-    console.log('id==> :>> ', id);
+    // console.log(' SSSSSSSSSSSSSSSSSSSSSSSSSS isInCart(item.id) :>> ', isInCart(id));
+    // console.log('id==> :>> ', id);
     if (isInCart(id)) {//! no existe este atributo por eso rompe
-      console.log('id-agregado :>> ', id);
+      // console.log('id-agregado :>> ', id);
       setCart(
         cart.map((i) =>{
-          console.log('i.id :>> ', i.id);
-          console.log('id :>> ', id);
+          // console.log('i.id :>> ', i.id);
+          // console.log('id :>> ', id);
           return i.id === id ? { ...i, quantity: i.quantity + quantity } : i
       })
         );

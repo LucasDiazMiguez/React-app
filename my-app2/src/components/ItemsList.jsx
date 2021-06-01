@@ -4,8 +4,8 @@ import { Items} from './Items'
 export const ItemList= (props)=>{
 
     
-    console.log('props.productos :>> ', props.productos);
-    console.log('props :>> ', props);
+    // console.log('props.productos :>> ', props.productos);
+    // console.log('props :>> ', props);
     return(
         <div className="container ">
 

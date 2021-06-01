@@ -8,33 +8,33 @@ export const ItemCategoryContainer = () => {
   const [itemsFromDB, setItemsFromDB] = useState([]);
   const [agrego, setAgrego] = useState(false);
   const array = [];
-  console.log('categoryId :>> ', categoryId);
+  // console.log('categoryId :>> ', categoryId);
   useEffect(() => {
     const db = getFirestore(); //abrir la puerta a la base de datos
     db.collection("items").where("category","==",categoryId)
       .get()
       .then((querySnapshot) => {
-        console.log("yooo soy query snapchot :>> ");
-        console.log("querySnapchot :>> ", querySnapshot);
+        // console.log("yooo soy query snapchot :>> ");
+        // console.log("querySnapchot :>> ", querySnapshot);
         // setItemsFromDB(querySnapshot.map(doc=>doc.data()))
         querySnapshot.forEach((doc) => {
-          console.log("entre per");
+          // console.log("entre per");
           // doc.data() is never undefined for query doc snapshots
-          console.log("doc.data() :>> ",  doc.data());
+          // console.log("doc.data() :>> ",  doc.data());
           array.push({item:doc.data(),id:doc.id})
         });
         setItemsFromDB(array);
         setAgrego(true);
-        console.log("itemsFromDB :>> ", itemsFromDB);
+        // console.log("itemsFromDB :>> ", itemsFromDB);
       })
       .catch((error) => {
-        console.log("Error getting documents: ", error);
+        // console.log("Error getting documents: ", error);
       });
   }, [categoryId]); 
 
-  // console.log("agrego :>> ", agrego);
-  console.log("typeof(itemsFromDB) :>> ", typeof itemsFromDB);
-  console.log("items from db [0]", itemsFromDB[0]);
+  // // console.log("agrego :>> ", agrego);
+  // console.log("typeof(itemsFromDB) :>> ", typeof itemsFromDB);
+  // console.log("items from db [0]", itemsFromDB[0]);
 
   return agrego ? (
     <div>

@@ -5,7 +5,7 @@ import Button from "./Button";
 const ItemCart = () => {
   const { cart, removeItem } = useContext(CartContext);
   const [comprar, setComprar] = useState(0);
-  console.log("comprar :>> ", comprar);
+  // console.log("comprar :>> ", comprar);
   return (
     <div>
       {cart.map((element) => (

@@ -10,8 +10,8 @@ const AddToCart = (props) => {
   // const [opacity, setOpacity] = useState(0);
   // const [colour1, setColour1] = useState("#3483fa");
   // const [colour2, setColour2] = useState("#3483fa");
-  console.log('props.product :>> ', props.product);
-  console.log('cart[0] :>> ', cart[0]);
+  // console.log('props.product :>> ', props.product);
+  // console.log('cart[0] :>> ', cart[0]);
   const [colour, setColour] = useState({
     opacity: 0,
     colour1: "#3483fa",
@@ -43,8 +43,8 @@ const AddToCart = (props) => {
 
   const onAdd = () => {
     addItem(props.product.item, counter,props.product.id);
-    console.log('agregué el producto  :>> ', props.product.item );
-    console.log('props.product.id :>> ', props.product.id);
+    // console.log('agregué el producto  :>> ', props.product.item );
+    // console.log('props.product.id :>> ', props.product.id);
   };
 
   return !check ? (

@@ -8,21 +8,21 @@ export const ItemDetailContainer = (props) => {
   const [product, setProduct] = useState(0);
   const { productId } = useParams();//! a itm detail ya van cuando ya tienen un params seteado
   //!vamos a tenr que pedirle es leemnto a la base de datos
-  console.log('productId :>> ', productId);
+  // console.log('productId :>> ', productId);
   const [agrego, setAgrego] = useState(false);
   useEffect(() => {
     const db = getFirestore(); //abrir la puerta a la base de datos
     db.collection("items").doc(productId)
       .get()
       .then((querySnapshot) => {
-        console.log('querySnapshot.data() :>> ', querySnapshot.data());
+        // console.log('querySnapshot.data() :>> ', querySnapshot.data());
         setProduct({item: querySnapshot.data(),id:querySnapshot.id})
         setAgrego(true);
-        console.log('product :>> ', product);
+        // console.log('product :>> ', product);
       })
       
       .catch((error) => {
-        console.log("Error getting documents: ", error);
+        // console.log("Error getting documents: ", error);
         setAgrego(false)
       });
   }, [productId]); 

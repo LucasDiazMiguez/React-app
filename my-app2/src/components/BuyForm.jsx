@@ -23,7 +23,7 @@ export const BuyForm = () => {
     const db = getFirestore(); //abrir la puerta a la base de datos
     const orderData = {
       buyer: { ...buyer },
-      price: totalPrice(),
+      price: totalPrice,
       cart: {
         ...cart.map((value) => {
           return {
@@ -35,16 +35,11 @@ export const BuyForm = () => {
         }),
       },
     };
-    // console.log("orderDat a :>> ", orderData);
     db.collection("Orders")
       .add(orderData)
       .then((data) => {
         setOrderId(data.id);
       });
-    // {cart.map((value)=>{ return {id: value.id,quantity: value.quantity,item:value.item.name,item:value.item.price}})
-    //   items:{...cart.map((value)=>{ return {id: value.id,quantity: value.quantity,item:value.item.name,price:value.item.price}})},
-    //   price:totalPrice
-    // });
   };
   const coroboration = () => {
     if (
@@ -89,7 +84,7 @@ export const BuyForm = () => {
       </h6>
       {orderId !== "" ?      <Orders id={orderId}></Orders> : <h5>cargue los datos</h5> }
 
-      {/* {goToOrder===1 && <h3> <input>Presione aquí para obtener su orden</input></h3>} */}
+      
     </div>
   );
 };
