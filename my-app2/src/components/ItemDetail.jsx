@@ -7,6 +7,7 @@ import AddToCart from "./AddToCart";
 
 const ItemDetail = (props) => {
  
+  
   return (
     <div class="row item-detail">
       <div class="col-lg-7 col-md-7 ">

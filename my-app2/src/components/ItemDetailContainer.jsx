@@ -16,9 +16,7 @@ export const ItemDetailContainer = (props) => {
       .get()
       .then((querySnapshot) => {
         console.log('querySnapshot.data() :>> ', querySnapshot.data());
-        let a={item: querySnapshot.data(),id:querySnapshot.id} 
-        console.log('a :>> ', a);
-        setProduct(a)
+        setProduct({item: querySnapshot.data(),id:querySnapshot.id})
         setAgrego(true);
         console.log('product :>> ', product);
       })

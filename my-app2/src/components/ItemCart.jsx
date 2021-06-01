@@ -1,12 +1,12 @@
-import React, { useContext } from "react";
+import React, { useContext,useState} from "react";
 import { CartContext } from "./CartContextTag";
 import Button from "./Button";
 
 
 const ItemCart = () => {
-  const { cart, removeItem, clear,totalPrice } = useContext(CartContext);
-
-  console.log('cart[0] :>> ', cart[0]);
+  const { cart, removeItem } = useContext(CartContext);
+  const [comprar, setComprar] = useState(0)
+  console.log('comprar :>> ', comprar);
   return (
     <div>
       {cart.map((element) => (
@@ -26,12 +26,9 @@ const ItemCart = () => {
 
           <div class="col-lg-3 col-md-3 box-gallery-item">
             <button onClick={() => removeItem(element.id)}> Remove item</button>
-          
           </div>
         </div>
       ))}
-      <button onClick={() => clear()}>Vaciar carrito</button>
-      <h3>Precio total: {totalPrice()}</h3>
     </div>
   );
 };

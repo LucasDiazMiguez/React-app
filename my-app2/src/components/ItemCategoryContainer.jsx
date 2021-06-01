@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { ItemCategoryList } from "./ItemCategoryList";
 import { getFirestore } from "./firebase";
 
-export const ItemCategoryContainer = (props) => {
+export const ItemCategoryContainer = () => {
   const { categoryId } = useParams();
   const [itemsFromDB, setItemsFromDB] = useState([]);
   const [agrego, setAgrego] = useState(false);
@@ -21,8 +21,7 @@ export const ItemCategoryContainer = (props) => {
           console.log("entre per");
           // doc.data() is never undefined for query doc snapshots
           console.log("doc.data() :>> ",  doc.data());
-          let a= {item:doc.data(),id:doc.id}
-          array.push(a)
+          array.push({item:doc.data(),id:doc.id})
         });
         setItemsFromDB(array);
         setAgrego(true);

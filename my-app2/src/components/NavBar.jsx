@@ -8,8 +8,8 @@ export function NavBar(props) {
   console.log('itemsAmount() :>> ', itemsAmount());
   return (
     <div>
-      <div className="container-fluid header-container">
-        <div className="row align-items-center justify-content-between  background-black ">
+      <div className="container-fluid header-container ">
+        <div className="row align-items-center justify-content-between  background-black pt-2 ">
           <div className="col-12 col-sm-2 col-md-2 col-lg-3">
             <div>
               <Link to={`/`}>

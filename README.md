@@ -1,3 +1,3 @@
 # React-app
 
-My first project in CODERHOUSE working with React JS. 
+My first project  working with React JS in CODERHOUSE. 
