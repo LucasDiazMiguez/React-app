@@ -3,23 +3,6 @@ import React, { useState } from "react";
 export const CartContext = React.createContext(0);
 
 export const CartContextTag = ({ children }) => {
-<<<<<<< HEAD
-  const [cart, setCart] = useState([]); 
-  console.log('cart :>> ', cart);
-  const addItem = (item, quantity,id) => {
-    console.log('id :>> ', id);
-    if (isInCart(id)) {
-      console.log("Estoy en isinCart");
-      setCart(
-        cart.map((i) =>
-        i.item.id === item.id ? { ...i, quantity: i.quantity + quantity } : i
-        )
-        );
-      } else {
-      console.log("NO ESTOY en isinCart");
-      setCart([...cart, { item, quantity, id }]);
-    }
-=======
   const [cart, setCart] = useState([]); //esta es la variable que va a ser global, y la tenes que pasar a provider asi los otros elementos pueden acceder tambien.
   const [totalPrice, settotalPrice] = useState(0)
   //En los otros, vos tenes que poner  [cart,setCart]=useContext() para poder acceder.
@@ -45,7 +28,6 @@ export const CartContextTag = ({ children }) => {
     //! o sea parece que cuando corre la función addItem y cambia cart, si se actualiza todo
     //! pero cuando ponia el settotalPrice() no se actualizaba
     //? creo que es porque 
->>>>>>> viendoelbug
   };
 
   const removeItem = (id) => {
@@ -59,14 +41,8 @@ export const CartContextTag = ({ children }) => {
   const itemsAmount = () =>
     cart.reduce((total, value) => total + value.quantity, 0);
 
-<<<<<<< HEAD
-  const isInCart = (id) => cart.some((item) => item.id === id);
-  const totalPrice = () =>
-    cart.reduce((total, value) => total + value.item.price * value.quantity, 0);
-=======
   const isInCart = (id) => cart.some((item) => item.item.id === id);
   
->>>>>>> viendoelbug
 
   return (
     <CartContext.Provider
