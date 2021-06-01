@@ -13,33 +13,23 @@ export const ItemListContainer = (props) => {
       .then((querySnapshot) => {
         console.log("yooo soy query snapchot :>> ");
         console.log("querySnapchot :>> ", querySnapshot);
-        // setItemsFromDB(querySnapshot.map(doc=>doc.data()))
         querySnapshot.forEach((doc) => {
-          // doc.data() is never undefined for query doc snapshots
-          let a = {item: doc.data(),id: doc.id}
-         
-          array.push(a);
-          //doc.id
-          //console.log("doc.data() :>> ", typeof doc.data());
+          array.push({item: doc.data(),id: doc.id});
         });
         setItemsFromDB(array);
         setAgrego(true);
-        console.log("itemsFromDB :>> ", itemsFromDB);
       })
       .catch((error) => {
         console.log("Error getting documents: ", error);
       });
   }, []);
 
-  // console.log("agrego :>> ", agrego);
   console.log("typeof(itemsFromDB) :>> ", typeof itemsFromDB);
-  console.log("items from db ", itemsFromDB);
   console.log("items from db ", itemsFromDB);
 
   return agrego ? (
     <div>
       <h2> Productos</h2>
-      {/* a item list le  tengo que pasar todos los id asociados */}
       <ItemList productos={itemsFromDB} />
     </div>
   ) : (

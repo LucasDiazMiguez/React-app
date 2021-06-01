@@ -43,7 +43,8 @@ const AddToCart = (props) => {
 
   const onAdd = () => {
     addItem(props.product.item, counter,props.product.id);
-    
+    console.log('agregué el producto  :>> ', props.product.item );
+    console.log('props.product.id :>> ', props.product.id);
   };
 
   return !check ? (
