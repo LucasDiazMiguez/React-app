@@ -4,30 +4,78 @@ import { NavLink } from "react-router-dom";
 export default function MainRow(props) {
   return (
     <div className="container">
-      <div className="row justify-content-around align-content-start ">
-        <div className="col-lg-1 align-self-start">
-          <NavLink to={"/category/cases"}>Gabinetes </NavLink>
+      <div className="row justify-content-around align-content-center  ">
+        <div className="col-lg-1 m-1 ">
+          <NavLink
+            to={"/category/Gabinetes"}
+            activeClassName="selected-link"
+            className="p-1 navLink "
+          >
+            Gabinetes
+          </NavLink>
         </div>
-        <div className="col-lg-1">
-          <NavLink to={"/category/processors"}>Procesadores </NavLink>
+        <div className="col-lg-1 m-1">
+          <NavLink
+            className="p-1 navLink"
+            to={"/category/Procesadores"}
+            activeClassName="selected-link"
+          >
+            Procesadores
+          </NavLink>
         </div>
-        <div className="col-lg-2">
-          <NavLink to={"/category/video-graphics-card"}>Placas de video</NavLink>
+        <div className="col-lg-1 m-1">
+          <NavLink
+            className="p-1 text-no-wrap navLink "
+            activeClassName="selected-link text-no-wrap"
+            to={"/category/Placas de video"}
+          >
+            Placas de video
+          </NavLink>
         </div>
-        <div className="col-lg-1">
-          <NavLink to={"/category/watches"}>Relojes </NavLink>
+        <div className="col-lg-1 m-1">
+          <NavLink
+            className="p-1 navLink"
+            activeClassName="selected-link"
+            to={"/category/Relojes"}
+          >
+            Relojes
+          </NavLink>
         </div>
-        <div className="col-lg-1">
-          <NavLink to={"/category/motherboards"}> Motherboards </NavLink>
+        <div className="col-lg-1 m-1 align-content-center">
+          <NavLink
+            className="p-1 navLink"
+            activeClassName="selected-link"
+            to={"/category/Placas madre"}
+          >
+            Motherboards
+          </NavLink>
         </div>
-        <div className="col-lg-1">
-          <NavLink to={"/category/ssd"}> SSD</NavLink>
+        <div className="col-lg-1 m-1 align-self-center">
+          <NavLink
+            className="p-1 text-center navLink"
+            activeClassName="selected-link"
+            to={"/category/SSD"}
+          >
+            SSD
+          </NavLink>
         </div>
-        <div className="col-lg-1">
-          <NavLink to={"/category/notebooks"}>Notebooks </NavLink>
+        <div className="col-lg-1 m-1">
+          <NavLink
+            className="p-1 navLink"
+            activeClassName="selected-link"
+            to={"/category/Notebooks"}
+          >
+            Notebooks
+          </NavLink>
         </div>
-        <div className="col-lg-1">
-          <NavLink to={"/category/cameras"}>camaras </NavLink>
+        <div className="col-lg-1 m-1">
+          <NavLink
+            className="p-1 navLink"
+            activeClassName="selected-link"
+            to={"/category/Camaras"}
+          >
+            Camaras
+          </NavLink>
         </div>
       </div>
     </div>

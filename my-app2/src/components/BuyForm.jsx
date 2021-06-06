@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react";
-import { CartContext } from "./CartContextTag";
-import { getFirestore } from "./firebase";
+import { CartContext } from "../context/CartContextTag";
+import { getFirestore } from "../config/firebase";
 import Orders from "./Orders";
 export const BuyForm = () => {
   const { cart, totalPrice } = useContext(CartContext);
@@ -23,7 +23,7 @@ export const BuyForm = () => {
     const db = getFirestore(); //abrir la puerta a la base de datos
     const orderData = {
       buyer: { ...buyer },
-      price: totalPrice,
+      price: totalPrice(),
       cart: {
         ...cart.map((value) => {
           return {
@@ -82,9 +82,11 @@ export const BuyForm = () => {
       <h6>
         <button onClick={() => coroboration()}>Obtener orden de compra</button>
       </h6>
-      {orderId !== "" ?      <Orders id={orderId}></Orders> : <h5>cargue los datos</h5> }
-
-      
+      {orderId !== "" ? (
+        <Orders id={orderId}></Orders>
+      ) : (
+        <h5>cargue los datos</h5>
+      )}
     </div>
   );
 };
