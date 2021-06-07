@@ -9,14 +9,14 @@ export default function MainRow(props) {
           <NavLink
             to={"/category/Gabinetes"}
             activeClassName="selected-link"
-            className="p-1 navLink "
+            className="p-1 navLink no-text-decoration  "
           >
             Gabinetes
           </NavLink>
         </div>
         <div className="col-lg-1 m-1">
           <NavLink
-            className="p-1 navLink"
+            className="p-1 navLink no-text-decoration"
             to={"/category/Procesadores"}
             activeClassName="selected-link"
           >
@@ -25,8 +25,8 @@ export default function MainRow(props) {
         </div>
         <div className="col-lg-1 m-1">
           <NavLink
-            className="p-1 text-no-wrap navLink "
-            activeClassName="selected-link text-no-wrap"
+            className="p-1 text-no-wrap navLink no-text-decoration "
+            activeClassName="selected-link text-no-wrap "
             to={"/category/Placas de video"}
           >
             Placas de video
@@ -34,7 +34,7 @@ export default function MainRow(props) {
         </div>
         <div className="col-lg-1 m-1">
           <NavLink
-            className="p-1 navLink"
+            className="p-1 navLink no-text-decoration"
             activeClassName="selected-link"
             to={"/category/Relojes"}
           >
@@ -43,7 +43,7 @@ export default function MainRow(props) {
         </div>
         <div className="col-lg-1 m-1 align-content-center">
           <NavLink
-            className="p-1 navLink"
+            className="p-1 navLink no-text-decoration"
             activeClassName="selected-link"
             to={"/category/Placas madre"}
           >
@@ -52,7 +52,7 @@ export default function MainRow(props) {
         </div>
         <div className="col-lg-1 m-1 align-self-center">
           <NavLink
-            className="p-1 text-center navLink"
+            className="p-1 text-center navLink no-text-decoration"
             activeClassName="selected-link"
             to={"/category/SSD"}
           >
@@ -61,7 +61,7 @@ export default function MainRow(props) {
         </div>
         <div className="col-lg-1 m-1">
           <NavLink
-            className="p-1 navLink"
+            className="p-1 navLink no-text-decoration"
             activeClassName="selected-link"
             to={"/category/Notebooks"}
           >
@@ -70,7 +70,7 @@ export default function MainRow(props) {
         </div>
         <div className="col-lg-1 m-1">
           <NavLink
-            className="p-1 navLink"
+            className="p-1 navLink no-text-decoration"
             activeClassName="selected-link"
             to={"/category/Camaras"}
           >

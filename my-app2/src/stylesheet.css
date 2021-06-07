@@ -183,6 +183,10 @@ input[type="number"] {
   font-family: Roboto, "Times New Roman", serif;
   -ms-flex-item-align: start;
       align-self: flex-start;
+  padding: 30px;
+  box-shadow: 13px 9px 22px -1px rgba(0, 0, 0, 0.16);
+  -webkit-box-shadow: 13px 9px 22px -1px rgba(0, 0, 0, 0.16);
+  -moz-box-shadow: 13px 9px 22px -1px rgba(0, 0, 0, 0.16);
 }
 
 .item-detail h3 {
@@ -261,13 +265,12 @@ header {
           transition-timing-function: linear;
   -webkit-text-decoration-color: #67677a;
           text-decoration-color: #67677a;
-  background-color: #7be0c7;
+  background-color: #c84295;
   border-radius: 5px;
   color: black;
 }
 
 .navLink {
-  color: white;
   text-decoration: none;
   border-radius: 5px;
   font-weight: bold;
@@ -359,5 +362,9 @@ footer .footer-container .menufooter li:hover a {
     -webkit-transform: translate(0, 0);
             transform: translate(0, 0);
   }
+}
+
+#cart-total-price {
+  background-color: red;
 }
 /*# sourceMappingURL=stylesheet.css.map */

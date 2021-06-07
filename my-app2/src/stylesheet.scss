@@ -131,6 +131,7 @@ input[type="number"] {
       color: Red;
       position: absolute;
       top: 300px;
+
     }
 
     .item-name {
@@ -151,6 +152,10 @@ input[type="number"] {
   font-weight: 700;
   font-family: Roboto, "Times New Roman", serif;
   align-self: flex-start;
+  padding: 30px;
+  box-shadow: 13px 9px 22px -1px rgba(0,0,0,0.16);
+-webkit-box-shadow: 13px 9px 22px -1px rgba(0,0,0,0.16);
+-moz-box-shadow: 13px 9px 22px -1px rgba(0,0,0,0.16);
   h3 {
     color: #3c4858;
   }
@@ -233,13 +238,12 @@ header {
   transition: 0.3s;
   transition-timing-function: linear;
   text-decoration-color: rgb(103, 103, 122);
-  background-color: rgb(123, 224, 199);
+  background-color: rgb(200, 66, 149);
   border-radius: 5px;
   color: black;
 }
 
 .navLink {
-  color: white;
   text-decoration: none;
   border-radius: 5px;
   font-weight: bold;
@@ -310,4 +314,7 @@ footer {
     color: white;
     transform: translate(0, 0);
   }
+}
+#cart-total-price{
+  background-color: red;
 }

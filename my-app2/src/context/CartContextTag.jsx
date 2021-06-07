@@ -8,8 +8,8 @@ export const CartContextTag = ({ children }) => {
     if (isInCart(id)) {
       setCart(
         cart.map((i) => {
-          return i.id === id ? { ...i, quantity: i.quantity + quantity } : i;
-        })
+          return i.id === id ? {...i, quantity: i.quantity + quantity } : i;
+        }).filter((i=>(i.quantity>0)))
       );
     } else {
       setCart([...cart, { item, quantity, id }]);

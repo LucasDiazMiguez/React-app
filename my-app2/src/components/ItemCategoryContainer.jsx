@@ -27,9 +27,9 @@ export const ItemCategoryContainer = () => {
 
   return agrego ? (
     <div>
-      <div class="container  d-flex flex-column justify-content-center">
-        <h2 className="align-self-center mt-4 font-weight-bold"> {categoryId}</h2>
-        <div class="row justify-content-around box ">
+      <div className="container align-items-center d-flex flex-column justify-content-center">
+        <h2 className="mt-4 font-weight-bold"> {categoryId}</h2>
+        <div className="row justify-content-around box ">
           {itemsFromDB.map((value) => (
             <ItemCategoryList key={value.id} productos={value} />
           ))}

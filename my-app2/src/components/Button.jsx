@@ -19,7 +19,7 @@ const Button = ({ item }) => {
   return (
     <div className="d-flex justify-content-around p-1 m-1">
       <button onClick={minusItem}> - </button>
-      <input style={{ width: "60px" }} value={item.quantity} />
+      <input style={{ width: "60px" }} className="button-alone pl-4" value={item.quantity} />
       <button onClick={plusItem}> + </button>
     </div>
   );

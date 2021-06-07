@@ -3,63 +3,63 @@ import React from "react";
 const Footer = () => {
   return (
     <footer>
-      <div class="container footer-container align-items-center">
-        <div class="row">
-          <div class="col-sm-4">
+      <div className="container footer-container align-items-center">
+        <div className="row">
+          <div className="col-sm-4">
             <ul>
-              <nav class="menufooter">
-                <h3 class="footer__link">Ayuda</h3>
+              <nav className="menufooter">
+                <h3 className="footer__link">Ayuda</h3>
                 <li>
-                  <a href="" class="footer__link">
+                  <a href="" className="footer__link">
                     FAQ
                   </a>
                 </li>
                 <li>
-                  <a href="" class="footer__link">
+                  <a href="" className="footer__link">
                     Ubicación
                   </a>
                 </li>
                 <li>
-                  <a href="" class="footer__link">
+                  <a href="" className="footer__link">
                     Consultas comunes
                   </a>
                 </li>
               </nav>
             </ul>
           </div>
-          <div class="col-sm-4">
+          <div className="col-sm-4">
             <ul>
-              <nav class="menufooter">
-                <h3 class="footer__link">Contacto</h3>
+              <nav className="menufooter">
+                <h3 className="footer__link">Contacto</h3>
                 <li>
-                  <a href="" class="footer__link">
+                  <a href="" className="footer__link">
                     Whatsapp
                   </a>
                 </li>
                 <li>
-                  <a href="" class="footer__link">
+                  <a href="" className="footer__link">
                     Local
                   </a>
                 </li>
               </nav>
             </ul>
           </div>
-          <div class="col-sm-4">
+          <div className="col-sm-4">
             <ul>
-              <nav class="menufooter">
-                <h3 class="footer__link">Marcas</h3>
+              <nav className="menufooter">
+                <h3 className="footer__link">Marcas</h3>
                 <li>
-                  <a href="" class="footer__link">
+                  <a href="" className="footer__link">
                     NVIDIA
                   </a>
                 </li>
                 <li>
-                  <a href="" class="footer__link">
+                  <a href="" className="footer__link">
                     AMD
                   </a>
                 </li>
                 <li>
-                  <a href="" class="footer__link">
+                  <a href="" className="footer__link">
                     INTEL
                   </a>
                 </li>
