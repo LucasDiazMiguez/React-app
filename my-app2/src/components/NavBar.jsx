@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link,NavLink} from "react-router-dom";
 import { CartContext } from "../context/CartContextTag";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
@@ -24,26 +24,29 @@ export function NavBar(props) {
           </div>
           <div className=" col-4 col-sm-4 col-md-5 col-lg-4 ">
             <nav className="menu d-flex flex-row p-1  justify-content-end">
-              <Link
+              <NavLink
                 to={`/sign-in`}
                 className="b-w-hover text-no-wrap no-text-decoration mr-3 p-1"
+                activeClassName="selected-link"
               >
                 Iniciar Sesión
-              </Link>
-              <Link
+              </NavLink>
+              <NavLink
                 to={`/register`}
                 className="b-w-hover text-no-wrap no-text-decoration mr-3 p-1"
+                activeClassName="selected-link"
               >
                 Crear Usuario
-              </Link>
-              <Link
+              </NavLink>
+              <NavLink
                 to={`/shopping-cart`}
                 className="b-w-hover   text-no-wrap no-text-decoration mr-3 p-1"
+                activeClassName="selected-link"
                 id="cart-icon-b"
               >
                 {itemsAmount() > 0 && <span>{itemsAmount()}</span>}
                 <FontAwesomeIcon icon={["fas", "shopping-cart"]} />
-              </Link>
+              </NavLink>
             </nav>
           </div>
         </div>

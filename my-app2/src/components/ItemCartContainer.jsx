@@ -14,17 +14,25 @@ const ItemCartContainer = () => {
         <div className="col-12 col-lg-12">
           <ItemCart />
         </div>
-        <div className="col-12 col-sm-12 col-md-12 col-lg-12 d-flex justify-content-around">
+      </div>
+      <div className="row justify-content-center">
+        <div className="col-12 col-sm-4 col-md-4 col-lg-4 ">
           <button
-            className="button-alone font-weight-bold"
+            className="button-alone button-style-1 font-weight-bold "
             onClick={() => clear()}
           >
             Vaciar carrito
           </button>
-          <h6 id="cart-total-price">Precio total: ${totalPrice()}</h6>
+        </div>
+        <div className="col-12 col-sm-4 col-md-4 col-lg-4">
+          <h5 id="cart-total-price" className="text-center ">
+            Precio total: ${totalPrice()}
+          </h5>
+        </div>
+        <div className="col-12 col-sm-4 col-md-4 col-lg-4">
           <h6>
             <Link to="/buyform">
-              <button className="button-alone black-text">
+              <button className="button-alone font-weight-bold button-style-1  black-text">
                 <span>Confirmar compra</span>
               </button>
             </Link>

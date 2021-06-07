@@ -5,11 +5,9 @@ import Orders from "./Orders";
 export const BuyForm = () => {
   const { cart, totalPrice } = useContext(CartContext);
   const [buyer, setBuyer] = useState({});
-  const [goToOrder, setGoToOrder] = useState(0);
   const [orderId, setOrderId] = useState("");
+  const [check, setCheck] = useState("");
 
-  //? porque cuando cambio el input se actualiza todo? o sea llama a la función, setea el buyer y dsps coomo que se actualiza el componente?
-  // ver si con una sola función puedo ver que input tocóa
   const handleInputName = (e) => {
     setBuyer({ ...buyer, name: e.target.value });
   };
@@ -21,6 +19,8 @@ export const BuyForm = () => {
   };
   const createOrder = () => {
     const db = getFirestore(); //abrir la puerta a la base de datos
+    setOrderId(1);
+    console.log('orderId  dentro del create:>> ', orderId);
     const orderData = {
       buyer: { ...buyer },
       price: totalPrice(),
@@ -39,6 +39,7 @@ export const BuyForm = () => {
       .add(orderData)
       .then((data) => {
         setOrderId(data.id);
+        console.log("data.id :>> ", data.id);
       });
   };
   const coroboration = () => {
@@ -52,40 +53,76 @@ export const BuyForm = () => {
         buyer.phone.trim() !== "" &&
         buyer.email.trim() !== ""
       ) {
-        console.log("cumplió :>> ");
-        setGoToOrder(1);
-        createOrder();
+        if (buyer.email.trim().indexOf("@gmail.com") != -1) {
+          console.log('orderId=1 :>> ', orderId);
+          createOrder();
+          setCheck("Datos ingresados de forma correcta, obteniendo orden");
+          console.log('orderId=2 :>> ', orderId);
+        } else {
+          setCheck("Dirección de email incorrecta, solo se aceptan @gmail.com");
+        }
       }
+    } else {
+      setCheck("datos ingresados de forma incorrecta");
     }
   };
+  console.log('orderId fuera de todo :>> ', orderId);
   return (
-    <div>
-      <form>
-        <label for="fname"> Nombre completo</label>
-        <input type="text" onChange={handleInputName} id="lname" name="lname" />
-        <label for="email"> Email</label>
-        <input
-          type="email"
-          onChange={handleInputEmail}
-          id="lname"
-          name="email"
-        />
-        <label for="phone-number"> Número de teléfono</label>
-        <input
-          type="tel"
-          onChange={handleInputPhoneNumber}
-          id="phone-number"
-          name="lname"
-        />
-      </form>
-
-      <h6>
-        <button onClick={() => coroboration()}>Obtener orden de compra</button>
-      </h6>
+    <div className="container">
       {orderId !== "" ? (
         <Orders id={orderId}></Orders>
       ) : (
-        <h5>cargue los datos</h5>
+        <>
+          <span className="p-3">
+            <h3 className="font-weight-bold"> Ingrese sus datos por favor</h3>
+          </span>
+
+          <form>
+            <div className="row p-2 ">
+              <label for="fname" className="p-1">
+                Nombre completo
+              </label>
+              <input
+                type="text"
+                onChange={handleInputName}
+                id="lname"
+                name="lname"
+                className="p-1"
+              />
+            </div>
+            <div className="row p-2">
+              <label for="email" className="p-1">
+                Email
+              </label>
+              <input
+                type="email"
+                onChange={handleInputEmail}
+                id="lname"
+                name="email"
+                className="p-1"
+              />
+            </div>
+            <div className="row p-2">
+              <label for="phone-number" className="p-1">
+                Número de teléfono
+              </label>
+              <input
+                type="tel"
+                onChange={handleInputPhoneNumber}
+                id="phone-number"
+                name="lname"
+                className="p-1"
+              />
+            </div>
+          </form>
+
+          <h6>
+            <button className="button-style-1" onClick={() => coroboration()}>
+              Obtener orden de compra
+            </button>
+            <span className="font-weight-bold"> {check}</span>
+          </h6>
+        </>
       )}
     </div>
   );

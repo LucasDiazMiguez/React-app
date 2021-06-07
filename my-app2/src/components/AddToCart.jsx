@@ -38,7 +38,7 @@ const AddToCart = (props) => {
   };
   console.log("props.product.stock :>> ", props.product.stock);
   return !check ? (
-    <div className="m-5">
+    <div className="m-5 d-flex flex-direction-row flex-nowrap">
       <button
         className="m-1 p-1 "
         style={{ backgroundColor: `${colour.colour2}` }}
@@ -46,7 +46,7 @@ const AddToCart = (props) => {
       >
         -
       </button>
-      <input type="number" value={counter} />
+      <input type="number" className="input-witdh" value={counter} />
       <button
         className="m-1 p-1 "
         style={{ backgroundColor: `${colour.colour1}` }}
