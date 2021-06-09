@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -10,19 +11,13 @@ const Footer = () => {
               <nav className="menufooter">
                 <h3 className="footer__link">Ayuda</h3>
                 <li>
-                  <a href="" className="footer__link">
-                    FAQ
-                  </a>
+                  <Link to="/">FAQ</Link>
                 </li>
                 <li>
-                  <a href="" className="footer__link">
-                    Ubicación
-                  </a>
+                  <Link to="/">Ubicación</Link>
                 </li>
                 <li>
-                  <a href="" className="footer__link">
-                    Consultas comunes
-                  </a>
+                  <Link to="/">Consultas comunes</Link>
                 </li>
               </nav>
             </ul>
@@ -32,14 +27,10 @@ const Footer = () => {
               <nav className="menufooter">
                 <h3 className="footer__link">Contacto</h3>
                 <li>
-                  <a href="" className="footer__link">
-                    Whatsapp
-                  </a>
+                  <Link to="/">Whatsapp</Link>
                 </li>
                 <li>
-                  <a href="" className="footer__link">
-                    Local
-                  </a>
+                  <Link to="/">Local</Link>
                 </li>
               </nav>
             </ul>
@@ -49,19 +40,13 @@ const Footer = () => {
               <nav className="menufooter">
                 <h3 className="footer__link">Marcas</h3>
                 <li>
-                  <a href="" className="footer__link">
-                    NVIDIA
-                  </a>
+                  <a href="https://www.nvidia.com/en-us/">NVIDIA</a>
                 </li>
                 <li>
-                  <a href="" className="footer__link">
-                    AMD
-                  </a>
+                  <a href="https://www.amd.com/en">AMD</a>
                 </li>
                 <li>
-                  <a href="" className="footer__link">
-                    INTEL
-                  </a>
+                  <a href="https://www.intel.com/content/www/us/en/homepage.html">Intel</a>
                 </li>
               </nav>
             </ul>

@@ -143,7 +143,7 @@ input[type="number"] {
 .left-border {
   display: flex;
   flex-direction: column;
-  align-items: start;
+  align-items: flex-start;
 }
 .item-detail {
   margin-top: 10%;
@@ -322,4 +322,7 @@ footer {
   background-color: #dbdbdbb3;
   padding: 12px;
   border-radius: 5px;
+}
+.color-inicio{
+  background-color: black;
 }

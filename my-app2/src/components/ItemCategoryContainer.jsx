@@ -2,13 +2,13 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { ItemCategoryList } from "./ItemCategoryList";
 import { getFirestore } from "../config/firebase";
-
+import Loading from "./Loading";
 export const ItemCategoryContainer = () => {
   const { categoryId } = useParams();
   const [itemsFromDB, setItemsFromDB] = useState([]);
   const [agrego, setAgrego] = useState(false);
-  const array = [];
   useEffect(() => {
+    const array = [];
     const db = getFirestore();
     db.collection("items")
       .where("category", "==", categoryId)
@@ -37,9 +37,6 @@ export const ItemCategoryContainer = () => {
       </div>
     </div>
   ) : (
-    <img
-      alt="Loading"
-      src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.203OyIQrZQcvPAtttruksgHaD6%26pid%3DApi%26h%3D160&f=1"
-    ></img>
+    <Loading />
   );
 };

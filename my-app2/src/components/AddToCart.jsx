@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { CartContext } from "../context/CartContextTag";
 
 const AddToCart = (props) => {
-  const { cart, addItem } = useContext(CartContext);
+  const { addItem } = useContext(CartContext);
   const [counter, setCounter] = useState(1);
   const [check, setCheck] = useState(false);
   const [colour, setColour] = useState({
@@ -36,7 +36,6 @@ const AddToCart = (props) => {
   const onAdd = () => {
     addItem(props.product.item, counter, props.product.id);
   };
-  console.log("props.product.stock :>> ", props.product.stock);
   return !check ? (
     <div className="m-5 d-flex flex-direction-row flex-nowrap">
       <button
@@ -46,7 +45,7 @@ const AddToCart = (props) => {
       >
         -
       </button>
-      <input type="number" className="input-witdh" value={counter} />
+      <input type="number" className="input-witdh" value={counter} readOnly />
       <button
         className="m-1 p-1 "
         style={{ backgroundColor: `${colour.colour1}` }}
@@ -80,9 +79,3 @@ const AddToCart = (props) => {
 };
 
 export default AddToCart;
-// var numbers = [45, 4, 9, 16, 25];
-// var allOver18 = numbers.every(myFunction);
-// console.log("allolver19",allOver18);
-// function myFunction(value, index, array) {
-//   return value > 18;
-// }

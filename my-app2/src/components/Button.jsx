@@ -3,7 +3,6 @@ import { CartContext } from "../context/CartContextTag"; //
 
 const Button = ({ item }) => {
   const { addItem } = useContext(CartContext);
-  console.log("item :>> ", item);
   const plusItem = () => {
     if (item.quantity <= item.item.stock) {
       addItem(item.item, 1, item.id);
@@ -19,7 +18,7 @@ const Button = ({ item }) => {
   return (
     <div className="d-flex justify-content-around p-1 m-1">
       <button onClick={minusItem}> - </button>
-      <input  className="button-alone input-witdh pl-4" value={item.quantity} />
+      <input className="button-alone input-witdh pl-4" value={item.quantity} readOnly />
       <button onClick={plusItem}> + </button>
     </div>
   );

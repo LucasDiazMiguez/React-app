@@ -20,7 +20,6 @@ export const BuyForm = () => {
   const createOrder = () => {
     const db = getFirestore(); //abrir la puerta a la base de datos
     setOrderId(1);
-    console.log('orderId  dentro del create:>> ', orderId);
     const orderData = {
       buyer: { ...buyer },
       price: totalPrice(),
@@ -39,7 +38,6 @@ export const BuyForm = () => {
       .add(orderData)
       .then((data) => {
         setOrderId(data.id);
-        console.log("data.id :>> ", data.id);
       });
   };
   const coroboration = () => {
@@ -53,11 +51,9 @@ export const BuyForm = () => {
         buyer.phone.trim() !== "" &&
         buyer.email.trim() !== ""
       ) {
-        if (buyer.email.trim().indexOf("@gmail.com") != -1) {
-          console.log('orderId=1 :>> ', orderId);
+        if (buyer.email.trim().indexOf("@gmail.com") !== -1) {
           createOrder();
           setCheck("Datos ingresados de forma correcta, obteniendo orden");
-          console.log('orderId=2 :>> ', orderId);
         } else {
           setCheck("Dirección de email incorrecta, solo se aceptan @gmail.com");
         }
@@ -66,7 +62,6 @@ export const BuyForm = () => {
       setCheck("datos ingresados de forma incorrecta");
     }
   };
-  console.log('orderId fuera de todo :>> ', orderId);
   return (
     <div className="container">
       {orderId !== "" ? (
@@ -79,7 +74,7 @@ export const BuyForm = () => {
 
           <form>
             <div className="row p-2 ">
-              <label for="fname" className="p-1">
+              <label htmlFor="fname" className="p-1">
                 Nombre completo
               </label>
               <input
@@ -91,7 +86,7 @@ export const BuyForm = () => {
               />
             </div>
             <div className="row p-2">
-              <label for="email" className="p-1">
+              <label htmlFor="email" className="p-1">
                 Email
               </label>
               <input
@@ -103,7 +98,7 @@ export const BuyForm = () => {
               />
             </div>
             <div className="row p-2">
-              <label for="phone-number" className="p-1">
+              <label htmlFor="phone-number" className="p-1">
                 Número de teléfono
               </label>
               <input

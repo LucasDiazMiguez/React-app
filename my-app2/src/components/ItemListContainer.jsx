@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { ItemList } from "../components/ItemsList";
 import { getFirestore } from "../config/firebase";
-
+import Loading from "./Loading"
 export const ItemListContainer = (props) => {
   const [itemsFromDB, setItemsFromDB] = useState([]);
   const [agrego, setAgrego] = useState(false);
-  const array = [];
   useEffect(() => {
+    const array = [];
     const db = getFirestore(); 
     db.collection("items")
       .get()
@@ -30,9 +30,6 @@ export const ItemListContainer = (props) => {
       <ItemList productos={itemsFromDB} />
     </div>
   ) : (
-    <img
-      alt=" Loading "
-      src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.203OyIQrZQcvPAtttruksgHaD6%26pid%3DApi%26h%3D160&f=1"
-    ></img>
+    <Loading/>
   );
 };

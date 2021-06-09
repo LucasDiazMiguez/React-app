@@ -5,10 +5,10 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import MainRow from "../components/MainRow";
 import { ItemDetailContainer } from "../components/ItemDetailContainer";
 import { ItemCategoryContainer } from "../components/ItemCategoryContainer";
-import MonkeyWorking from "../components/MonkeyWorking";
+import Loading from "../components/Loading";
 import ItemCartContainer from "../components/ItemCartContainer.jsx";
-import {BuyForm} from "../components/BuyForm"
-import Footer  from "../components/Footer"
+import { BuyForm } from "../components/BuyForm";
+import Footer from "../components/Footer";
 
 const RouterApp = () => {
   return (
@@ -20,10 +20,12 @@ const RouterApp = () => {
         </header>
         <Switch>
           <Route path="/sign-in">
-            <MonkeyWorking />
+            <h3 className="font-weight-bold">We are working on it</h3>
+            <Loading />
           </Route>
           <Route path="/register">
-            <MonkeyWorking />
+            <h3 className="font-weight-bold">We are working on it</h3>
+            <Loading />
           </Route>
           <Route path="/shopping-cart">
             <ItemCartContainer />
