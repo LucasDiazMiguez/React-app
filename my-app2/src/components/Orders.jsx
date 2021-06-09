@@ -1,14 +1,11 @@
-import React,{useContext,useEffect} from "react";
+import React, { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Loading from "./Loading";
-import {CartContext} from "../context/CartContextTag"
+import { CartContext } from "../context/CartContextTag";
 const Orders = (props) => {
-  const { clear} = useContext(CartContext);
-  useEffect(() => {
-    clear()
-    return () => {
-    };
-  }, []);
+  const { clear } = useContext(CartContext);
+  clear();
+
   return props.id === 1 ? (
     <Loading />
   ) : (
