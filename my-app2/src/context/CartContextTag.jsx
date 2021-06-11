@@ -6,11 +6,29 @@ export const CartContextTag = ({ children }) => {
   const [cart, setCart] = useState([]);
   const addItem = (item, quantity, id) => {
     if (isInCart(id)) {
-      setCart(
-        cart.map((i) => {
-          return i.id === id ? {...i, quantity: i.quantity + quantity } : i;
-        }).filter((i=>(i.quantity>0)))
-      );
+      let itemIdAndQuantity = cart.find((value) => value.id === id);
+      if (
+        itemIdAndQuantity.quantity + quantity <= item.stock ||
+        quantity === -1
+      ) {
+        setCart(
+          cart
+            .map((i) => {
+              return i.id === id
+                ? { ...i, quantity: i.quantity + quantity }
+                : i;
+            })
+            .filter((i) => i.quantity > 0)
+        );
+      } else if (itemIdAndQuantity.quantity + quantity > item.stock) {
+        setCart(
+          cart
+            .map((i) => {
+              return i.id === id ? { ...i, quantity: i.item.stock } : i;
+            })
+            .filter((i) => i.quantity > 0)
+        );
+      }
     } else {
       setCart([...cart, { item, quantity, id }]);
     }

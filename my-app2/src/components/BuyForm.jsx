@@ -3,7 +3,7 @@ import { CartContext } from "../context/CartContextTag";
 import { getFirestore } from "../config/firebase";
 import Orders from "./Orders";
 export const BuyForm = () => {
-  const { cart, totalPrice } = useContext(CartContext);
+  const { cart, totalPrice, clear } = useContext(CartContext);
   const [buyer, setBuyer] = useState({});
   const [orderId, setOrderId] = useState("");
   const [check, setCheck] = useState("");
@@ -38,7 +38,8 @@ export const BuyForm = () => {
       .add(orderData)
       .then((data) => {
         setOrderId(data.id);
-      });
+      })
+      .then(() => clear());
   };
   const coroboration = () => {
     if (
